@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Papadope -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Quizzery is powerful online test generator that will automatically mark and grade your quizzes. Create, send and start analyzing the results now.">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <title>Quizzery - Analyze</title>
+</head>
+
+<body>
+    <!-- Menu Section -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div id="mainMenu">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="images/logo.png" alt="Logo" onclick="window.location='index.html'" class="quizzeryLogo">
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-light">
+                        <li>
+                            <a href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="users.html">Users</a>
+                        </li>
+                        <li>
+                            <a href="#">Reports</a>
+                        </li>
+                        <li>
+                            <a href="settings.html">Settings</a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="form">
+
+                        <a role="button" class="btn btn-primary" href="#upgradeModal" data-toggle="modal">Upgrade
+                            Now</a>
+
+                        <a role="button" class="btn btn-success" href="#confirm-logout" data-toggle="modal">Logout</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secondary Menu Section -->
+    <ul class="nav nav-tabs" style="padding-top: 70px; padding-left: 50px;">
+
+        <li class="nav-menu-secondary">
+            <a href="editQuiz.html">Create</a>
+        </li>
+        <li class="nav-menu-secondary">
+            <a href="publish.html">Publish</a>
+        </li>
+        <li class="active">
+            <a href="analyze.html">Analyze</a>
+        </li>
+    </ul>
+
+    <!-- Content Section Analyze -->
+    <div class="container userContainer" style="padding-top: 20px; background-color: lightgray;">
+        <div class="col-md-12">
+            <div class="row" style="padding-top: 20px; border: solid 1px black">
+                <strong>Date published:</strong>
+                <p style="float: right;">17-May-2020 7:20 AM</p>
+            </div>
+            <div class="row" style="padding-top: 20px; border: solid 1px black">
+                <strong>Total respondents:</strong>
+                <p style="float: right;">1</p>
+            </div>
+            <div class="row" style="padding-top: 20px; padding-bottom: 20px; border: solid 1px black;">
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label for="exampleFormControlSelect1"><strong>Report type:</strong></label>
+                    </div>
+                    <div class="col-md-5">
+                        <select class="form-control">
+                            <option>Individual Summary</option>
+                            <option>Individual Responses</option>
+                            <option>Response Summary</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal Safety -->
+    <div class="modal fade" id="confirm-logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Are you sure you want to Logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-ok" href="/index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upgrade Now Modal -->
+    <div id="upgradeModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div id="pricing" class="container-fluid">
+                    <div class="text-center">
+                        <h2>Pricing</h2>
+                        <h4>Choose a payment plan that works for you</h4>
+                    </div>
+                    <div class="row slideanim">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <h3>Free</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Unlimited Quizzes</p>
+                                    <p><strong>10</strong> questions per quiz</p>
+                                    <p><strong>20</strong> responses per quiz</p>
+                                    <p><strong>7</strong> question types</p>
+                                    <p>Automatically calculate, score, grade</p>
+                                    <p>Private and public sharing options</p>
+                                    <p>Timed tests</p>
+                                    <p>Analysis and reporting</p>
+                                    <p>Randomize questions and options</p>
+                                    <p>Answer feedback</p>
+                                    <p>Personalize emails and welcome pages</p>
+                                </div>
+                                <div class="panel-footer">
+                                    <h3>Free</h3>
+                                    <h4>per month</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <h3>Premium</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Unlimited questions per quiz</p>
+                                    <p>Unlimited responses per quiz</p>
+                                    <p><strong>2</strong> administrator / trainer accounts</p>
+                                    <p>Certificates</p>
+                                    <p>Question bank and question upload</p>
+                                    <p>Customize branding, text and colors</p>
+                                    <p>Sell tests and courses</p>
+                                    <p>Quiz redirect</p>
+                                    <p>Email notifications</p>
+                                    <p>Make tests in any language</p>
+                                    <p>Automate quiz</p>
+                                    <p>and more…</p>
+                                </div>
+                                <div class="panel-footer">
+                                    <h3>&#36;20</h3>
+                                    <h4>per month</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <h3>Enterprise</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Unlimited administrator / trainer accounts</p>
+                                    <p>Phone and email support <strong>7</strong> days a week</p>
+                                    <p>Personalize respondent portals</p>
+                                    <p>Create custom groups</p>
+                                    <p>APIs and Webhooks</p>
+                                    <p><strong>100GB</strong> storage</p>
+                                    <p>Quiz redirect</p>
+                                    <p>Email notifications</p>
+                                    <p>Make tests in any language</p>
+                                    <p>Sell tests and courses</p>
+                                    <p>and more…</p>
+                                </div>
+                                <div class="panel-footer">
+                                    <h3>$49</h3>
+                                    <h4>per month</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Upgrade</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="float: left">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="siteFooter">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Contact us</a>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Terms and Conditions</a>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Privacy Policy</a>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Help</a>
+                    </h5>
+                </div>
+
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <a href="#">Michalis Vardakis</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">Panagiotis Baroutas</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">Christos Papadopoulos</a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <h6>© 2020 - GroupProjectTeam</h6>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/javascript.js"></script>
+
+</body>
+
+</html>
