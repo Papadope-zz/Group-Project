@@ -25,10 +25,12 @@ public class UserEntity implements Serializable {
 
 	@Column(nullable = false, length = 120, unique = true)
 	private String email;
+
 	@Column(nullable = false)
 	private String encryptedPassword;
 
 	private String emailVerificationToken;
+
 	@Column(nullable = false)
 	private Boolean emailVerificationStatus = false;
 

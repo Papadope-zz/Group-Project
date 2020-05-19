@@ -94,34 +94,34 @@ $(document).ready(function() {
 		
 		
 		
-		$('#login_form').on('submit', function(event) {
-			
-			  event.preventDefault();
-			
-			  
-			  
-			  var formData = {
-
-				       
-				        email: $('#login_form :input[name=email]').val(),
-				        password: $('#login_form :input[name=password]').val()
-				       
-				    };
-			  
-			 var json= JSON.stringify(formData);
-		
-			  $.ajax({
-			    type: 'POST',
-			    url: 'http://localhost:8080/Quizzery/users/login',
-			    dataType: 'json',
-			    data: json,
-			    contentType: 'application/json',
-			    success: function(data) {
-			    console.log(data)	;
-			      
-			    }
-			  });
-			});
+//		$('#login_form').on('submit', function(event) {
+//			
+//			  event.preventDefault();
+//			
+//			  
+//			  
+//			  var formData = {
+//
+//				       
+//				        email: $('#login_form :input[name=email]').val(),
+//				        password: $('#login_form :input[name=password]').val()
+//				       
+//				    };
+//			  
+//			 var json= JSON.stringify(formData);
+//		
+//			  $.ajax({
+//			    type: 'POST',
+//			    url: 'http://localhost:8080/Quizzery/login',
+//			    dataType: 'json',
+//			    data: json,
+//			    contentType: 'application/json',
+//			    success: function(data) {
+//			    console.log(data)	;
+//			      
+//			    }
+//			  });
+//			});
 		
 		
 		

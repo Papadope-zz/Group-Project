@@ -75,8 +75,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 		res.addHeader("UserID", userDto.getUserId());
 		System.out.println(res.getHeaders(SecurityConstants.HEADER_STRING));
 
-		redirectStrategy.sendRedirect(req, res, "/dashboard");
-
 	}
 
 }
