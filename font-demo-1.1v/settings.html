@@ -46,7 +46,7 @@
                             <a href="#">Reports</a>
                         </li>
                         <li>
-                            <a href="#table_top">Settings</a>
+                            <a href="settings.html">Settings</a>
                         </li>
                     </ul>
                     <form class="navbar-form navbar-right" role="form">
@@ -63,7 +63,81 @@
     </nav>
 
     <!-- Settings Section -->
-    
+    <div class="container mt-5" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-lg-4 pb-5">
+                <!-- Account Sidebar-->
+                <img src="images/avatar3.png" alt="Avatar" class="avatar"> <br> <br>
+                <strong>Welcome, Chris</strong>
+                <div class="wizard" style="padding-top: 10px;">
+                    <nav class="list-group list-group-flush">
+                        <a class="list-group-item active" href="settings.html"><i
+                                class="glyphicon glyphicon-user text-muted"></i>Profile
+                            Settings</a>
+                        <a class="list-group-item" href="password.html"><i
+                                class="glyphicon glyphicon-user text-muted"></i>Password</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- Profile Settings-->
+            <div class="col-lg-8 pb-5">
+                <form class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="account-fn">First Name</label>
+                            <input class="form-control" type="text" id="account-fn" value="Papadope" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="account-ln">Last Name</label>
+                            <input class="form-control" type="text" id="account-ln" value="Papadope" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="account-email">E-mail Address</label>
+                            <input class="form-control" type="email" id="account-email" value="xristaras-giapanta@hotmail.com"
+                                disabled="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="account-phone">Phone Number</label>
+                            <input class="form-control" type="text" id="account-phone" value="6948574865"
+                                required="">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <hr class="mt-2 mb-3">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                            <button class="btn btn-style-1 btn-success" type="button"
+                                data-toast-message="Your profile updated successfuly.">Update Profile</button>
+                            <button class="btn btn-style-1 btn-danger" type="button" data-toast=""
+                                data-toast-message="Your profile deleted successfuly." style="float: right;">Delete
+                                Account</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal Safety -->
+    <div class="modal fade" id="confirm-logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Are you sure you want to Logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-ok" href="/index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Upgrade Now Modal -->
     <div id="upgradeModal" class="modal fade">
@@ -159,48 +233,9 @@
         </div>
     </div>
 
-    <!-- Logout Modal Safety -->
-    <div class="modal fade" id="confirm-logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    Are you sure you want to Logout?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger btn-ok" href="/index.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer Section -->
     <div class="siteFooter">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3">
-                    <h5>
-                        <a href="#">Contact us</a>
-                    </h5>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                        <a href="#">Terms and Conditions</a>
-                    </h5>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                        <a href="#">Privacy Policy</a>
-                    </h5>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                        <a href="#">Help</a>
-                    </h5>
-                </div>
-
-            </div>
             <div class="row text-center">
                 <div class="col-md-4">
                     <a href="#">Michalis Vardakis</a>
@@ -217,6 +252,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Script Js -->
+    <script type="text/javascript" src="js/javascript.js"></script>
 
 </body>
 

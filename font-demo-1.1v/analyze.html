@@ -18,7 +18,7 @@
     <title>Quizzery - Analyze</title>
 </head>
 
-<body>
+<body style="background-color: #f2f2f2;">
     <!-- Menu Section -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -72,20 +72,24 @@
         <li class="active">
             <a href="analyze.html">Analyze</a>
         </li>
+        <li class="nav-menu-secondary">
+            <a href="takequiz.html">Take a Quiz</a>
+        </li>
     </ul>
 
     <!-- Content Section Analyze -->
-    <div class="container userContainer" style="padding-top: 20px; background-color: lightgray;">
-        <div class="col-md-12">
-            <div class="row" style="padding-top: 20px; border: solid 1px black">
+    <div class="fluid" style=" background-color: white;">
+        <div class="col-md-12 ">
+            <div class="row" style="padding-top: 20px; border: solid 10px #f2f2f2; background-color: white;">
                 <strong>Date published:</strong>
                 <p style="float: right;">17-May-2020 7:20 AM</p>
             </div>
-            <div class="row" style="padding-top: 20px; border: solid 1px black">
+            <div class="row" style="padding-top: 20px; border: solid 10px #f2f2f2; background-color: white;">
                 <strong>Total respondents:</strong>
                 <p style="float: right;">1</p>
             </div>
-            <div class="row" style="padding-top: 20px; padding-bottom: 20px; border: solid 1px black;">
+            <div class="row"
+                style="padding-top: 20px; padding-bottom: 20px; border: solid 10px #f2f2f2; background-color: white;">
                 <div class="form-group">
                     <div class="col-md-2">
                         <label for="exampleFormControlSelect1"><strong>Report type:</strong></label>
@@ -98,6 +102,166 @@
                         </select>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="panel panel-primary col-md-12">
+            <div class="panel-heading">Individual Summary</div>
+            <div class="panel-body" style="border: solid 1px #76c2af;">
+                <div class="row">
+                    <div class=" row reportViewerToolbar">
+                        <div class="col-sm-12">
+                            <div class="navbar-right toolbarMenuItem dropdown" style="margin-left:16px;"
+                                data-toggle="tooltip" title="" data-original-title="Additional options">
+                                <div data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="glyphicon glyphicon-option-vertical" style="float: right;"></span>
+                                </div>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a>Configure
+                                            columns</a></li>
+                                    <li><a>Export
+                                            (CSV)</a></li>
+                                    <li><a>Extended
+                                            Export</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a>Submit all
+                                            unsubmitted quizzes</a></li>
+                                    <li><a>Delete
+                                            all responses</a></li>
+                                </ul>
+                            </div>
+                            <span class="navbar-right toolbarMenuItem" style="margin-left:16px;" data-toggle="tooltip"
+                                title="" data-original-title="Export the report as an Excel file">
+                                <span class="glyphicon glyphicon-download-alt" style="margin-right:0px;"></span>
+                                Export
+                            </span>
+                            <span class="navbar-right toolbarMenuItem" data-toggle="tooltip" title=""
+                                data-original-title="Create PDF copy of the report">
+                                <span class="glyphicon glyphicon-file" style="margin-right:0px;"></span>
+                                PDF
+                            </span>
+                            <span class="navbar-right toolbarMenuItem" style="margin-right:16px;" data-toggle="tooltip"
+                                title="" data-original-title="Print a copy of the report">
+                                <span class="glyphicon glyphicon-print" style="margin-right:0px;"></span>
+                                Print
+                            </span>
+                            <span id="searchReportMenuItem" class="navbar-right toolbarMenuItem"
+                                style="margin-right:18px;"
+                                onclick="$('#searchReport').show(); $('#searchReportMenuItem').hide();"
+                                data-toggle="tooltip" title="" data-original-title="Search the report results">
+                                <span class="glyphicon glyphicon-search" style="margin-right:0px;"></span>
+                                Search
+                            </span>
+                            <div id="searchReport" class="navbar-right toolbarMenuItem"
+                                style="margin-right:16px;margin-top:-8px;width:250px;display:none;">
+                                <div style="font-size:18px;float:right;margin-left:228px;top:-4px;position:absolute;z-index: 9;"
+                                    onclick="$('#searchReport').hide(); $('#searchReportMenuItem').show(); clearSearchIndividualSummaryReport();">
+                                    »
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="glyphicon glyphicon-search"
+                                            aria-hidden="true"></i></div>
+                                    <input type="text" class="form-control ng-valid ng-dirty ng-valid-parse ng-touched"
+                                        placeholder="Search" onkeyup="searchIndividualSummaryReport();">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-condensed reportText sortable" id="individualSummary">
+                    <thead>
+                        <tr>
+                            <th>Date submitted</th>
+                            <th>Score</th>
+                            <th>Grade</th>
+                            <th>Pass</th>
+                            <th style="width:100px;" class="sorttable_nosort"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>17-May-2020 7:22 AM</td>
+                            <td>
+                                <span>0</span> / <span>4</span> (<span>0</span>%)
+                            </td>
+                            <td><span>Fail</span></td>
+                            <td>No, you stupid</td>
+                            <td>
+                                <div class="dropdown text-left" style="padding-right: 20px;">
+                                    <a data-target="#" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false" class="btn btn-success">
+                                        select action
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu reportText">
+                                        <li><a>view</a>
+                                        </li>
+                                        <li><a
+                                                onclick="showEditSCPopup('e3302ebf-86d6-457f-826a-f5bff6006d8a')">edit</a>
+                                        </li>
+                                        <li><a
+                                                onclick="confirmDeleteIndividualResponses('e3302ebf-86d6-457f-826a-f5bff6006d8a')">delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>17-May-2020 7:22 AM</td>
+                            <td>
+                                <span>0</span> / <span>4</span> (<span>0</span>%)
+                            </td>
+                            <td><span>Fail</span></td>
+                            <td>No, you stupid</td>
+                            <td>
+                                <div class="dropdown text-left" style="padding-right: 20px;">
+                                    <a data-target="#" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false" class="btn btn-success">
+                                        select action
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu reportText">
+                                        <li><a>view</a>
+                                        </li>
+                                        <li><a
+                                                onclick="showEditSCPopup('e3302ebf-86d6-457f-826a-f5bff6006d8a')">edit</a>
+                                        </li>
+                                        <li><a
+                                                onclick="confirmDeleteIndividualResponses('e3302ebf-86d6-457f-826a-f5bff6006d8a')">delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>17-May-2020 7:22 AM</td>
+                            <td>
+                                <span>0</span> / <span>4</span> (<span>0</span>%)
+                            </td>
+                            <td><span>Fail</span></td>
+                            <td>No, you stupid</td>
+                            <td>
+                                <div class="dropdown text-left" style="padding-right: 20px;">
+                                    <a data-target="#" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false" class="btn btn-success">
+                                        select action
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu reportText">
+                                        <li><a>view</a>
+                                        </li>
+                                        <li><a
+                                                onclick="showEditSCPopup('e3302ebf-86d6-457f-826a-f5bff6006d8a')">edit</a>
+                                        </li>
+                                        <li><a
+                                                onclick="confirmDeleteIndividualResponses('e3302ebf-86d6-457f-826a-f5bff6006d8a')">delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
             </div>
         </div>
     </div>
@@ -212,32 +376,12 @@
         </div>
     </div>
 
+    <!-- Back To Top Button -->
+    <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+
     <!-- Footer Section -->
     <div class="siteFooter">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3">
-                    <h5>
-                        <a href="#">Contact us</a>
-                    </h5>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                        <a href="#">Terms and Conditions</a>
-                    </h5>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                        <a href="#">Privacy Policy</a>
-                    </h5>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                        <a href="#">Help</a>
-                    </h5>
-                </div>
-
-            </div>
             <div class="row text-center">
                 <div class="col-md-4">
                     <a href="#">Michalis Vardakis</a>

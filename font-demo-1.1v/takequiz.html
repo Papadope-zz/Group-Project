@@ -15,7 +15,7 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <title>Quizzery - Publish</title>
+    <title>Quizzery - Take a Quiz</title>
 </head>
 
 <body>
@@ -67,44 +67,69 @@
         <li class="nav-menu-secondary">
             <a href="editQuiz.html">Create</a>
         </li>
-        <li class="active">
+        <li class="nav-menu-secondary">
             <a href="publish.html">Publish</a>
         </li>
         <li class="nav-menu-secondary">
             <a href="analyze.html">Analyze</a>
         </li>
-        <li class="nav-menu-secondary">
+        <li class="active">
             <a href="takequiz.html">Take a Quiz</a>
         </li>
     </ul>
 
-    <!-- Content Section Ways Of Publish -->
-    <div class="container" style="padding-top: 20px; background-color: #f2f2f2;">
-        <div class="col-md-12">
-            <div class="row" style="padding-top: 20px;">
-                <p><strong>Quiz Status</strong> <input id="currentStatus" type="button" value="In Design"
-                        class="btn btn-info" style="pointer-events: none;"> </p>
-                <input id="myButton1" class="btn btn-primary" type="button" onclick="change()" value="Go Public">
-            </div>
-            <div class="row" style="padding-top: 20px;">
-                <p><strong>Destribution</strong>:</p>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="" disabled><strong>Use Quiz Link</strong> <br>
-                        Copy and share this link using your email, social media, website, blog etc.</label>
+    <!-- Search A Quiz From Database Form -->
+    <div class="container">
+        <h2>Search a Quiz from Our Catalog</h2>
+        <p>Type something in the input field to search the table for <strong>quiz names</strong> , <strong>quiz
+                status</strong>
+            or <strong>quiz owners</strong>:</p>
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <br>
+        <table class="table table-bordered table table-hover">
+            <thead>
+                <tr>
+                    <th>Quiz Name</th>
+                    <th>Quiz Status</th>
+                    <th>Quiz Owner</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <tr>
+                    <td>Javascript</td>
+                    <td>Private</td>
+                    <td>John</td>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td>Public</td>
+                    <td>Mike</td>
+                </tr>
+                <tr>
+                    <td>MySQL</td>
+                    <td>Public</td>
+                    <td>Panos</td>
+                </tr>
+                <tr>
+                    <td>React &#10084;</td>
+                    <td>Private</td>
+                    <td>Chris</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Logout Modal Safety -->
+    <div class="modal fade" id="confirm-logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Are you sure you want to Logout?
                 </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="" disabled><strong>Send Email Invites</strong> <br>
-                        Quizzery will send an email to your invitees. Completed quizzes are tracked using the Unique
-                        Link and invitees email address.</label>
-                </div>
-                <div class="checkbox disabled">
-                    <label><input type="checkbox" value="" disabled>
-                        <strong>Assign Users / Groups</strong> <br>
-                        Users login to their own customized portal to access assigned quizzes. Groups allow you to
-                        assign a group of users to your quiz. You will need to manually notify a user that a quiz
-                        has
-                        been assigned to their portal.
-                    </label>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-ok" href="/index.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -204,22 +229,6 @@
         </div>
     </div>
 
-    <!-- Logout Modal Safety -->
-    <div class="modal fade" id="confirm-logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    Are you sure you want to Logout?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger btn-ok" href="/index.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Back To Top Button -->
     <a id="back2Top" title="Back to top" href="#">&#10148;</a>
 
@@ -243,8 +252,22 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Script Js -->
     <script type="text/javascript" src="js/javascript.js"></script>
+
+    <!-- Script for Search Bar -->
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>
