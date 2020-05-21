@@ -1,25 +1,92 @@
 package com.vbp.quizzery.service.impl;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.vbp.quizzery.exception.UserServiceException;
+import com.vbp.quizzery.io.entity.QuestionEntity;
+import com.vbp.quizzery.io.entity.QuizEntity;
+import com.vbp.quizzery.io.repositories.QuestionRepository;
+import com.vbp.quizzery.io.repositories.QuizRepository;
 import com.vbp.quizzery.service.QuestionService;
+import com.vbp.quizzery.shared.Utils;
 import com.vbp.quizzery.shared.dto.QuestionDto;
+import com.vbp.quizzery.shared.dto.QuizDto;
+import com.vbp.quizzery.ui.model.response.ErrorMessages;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
+	@Autowired
+	QuestionRepository quesR;
+	@Autowired
+	QuizRepository quizR;
+	@Autowired
+	Utils utils;
+	
 	@Override
 	public List<QuestionDto> getQuestions(String quizId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		ArrayList<QuestionDto> returnValue= new ArrayList<QuestionDto> ();
+		
+		QuizEntity quiz=quizR.findByQuizId(quizId);	
+		if (quiz==null) return returnValue;	
+		Iterable<QuestionEntity> questions = quesR.findAllByQuiz(quiz);
+		for(QuestionEntity qE:questions) {		
+			returnValue.add(new ModelMapper().map(qE,QuestionDto.class));
+		}
+		return returnValue;
 	}
 
 	@Override
 	public QuestionDto getQuestion(String questionId) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		QuestionDto returnValue=null;		
+		QuestionEntity qE=quesR.findByQuestionId(questionId);		
+		if (qE!=null) {
+			
+			returnValue=new ModelMapper().map(qE,QuestionDto.class);
+		}
+		return returnValue;
+		
 	}
 
+	@Override
+	public QuestionDto createQuestion(String quizId, QuestionDto question) {
+		ModelMapper mM = new ModelMapper();
+		
+		QuestionEntity questionEntity=mM.map(question, QuestionEntity.class);	
+		questionEntity.setQuestionId(utils.generateQuestionId(20)); // random  id 20 alphanumeric characters long		
+		questionEntity.setQuiz(quizR.findByQuizId(quizId));
+		QuestionEntity storedQuestionDetails = quesR.save(questionEntity);
+		QuestionDto returnValue = mM.map(storedQuestionDetails, QuestionDto.class);
+		return returnValue;
+	}
+
+	@Override
+	public QuestionDto updateQuestion(String questionId, QuestionDto question) {
+		QuestionEntity questionEntity = quesR.findByQuestionId(questionId);
+		if (questionEntity==null) throw new UserServiceException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
+		questionEntity.setQuestionText(question.getQuestionText());
+		questionEntity.setPoints(question.getPoints());
+		QuestionEntity updatedQuestionDetails=quesR.save(questionEntity);
+		QuestionDto returnValue=new ModelMapper().map(updatedQuestionDetails,QuestionDto.class);
+		return returnValue;
+	}
+	
+	
+
+	@Override
+	public void deleteQuestion(String questionId) {
+		QuestionEntity questionEntity = quesR.findByQuestionId(questionId);	
+		if (questionEntity==null) throw new UserServiceException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
+		quesR.delete(questionEntity);
+	}
+	
+	
 }

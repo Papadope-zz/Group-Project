@@ -1,6 +1,7 @@
 package com.vbp.quizzery.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -42,11 +43,15 @@ public class QuizServiceImpl implements QuizService {
 	
 
 	@Override
-	public QuizDto createQuiz(QuizDto quiz) {
+	public QuizDto createQuiz(String loggedUserName, QuizDto quiz) {
 		
 		ModelMapper mM = new ModelMapper();
+
 		QuizEntity quizEntity=mM.map(quiz, QuizEntity.class);	
-		quizEntity.setQuizId(utils.generateUserId(30)); // random user id 30 alphanumeric characters long
+		quizEntity.setUser(uR.findByUserName(loggedUserName));
+		quizEntity.setDateCreated(new Date());
+		quizEntity.setQuizId(utils.generateUserId(20)); // random  id 20 alphanumeric characters long
+		
 		QuizEntity storedQuizDetails = qR.save(quizEntity);
 		QuizDto returnValue = mM.map(storedQuizDetails, QuizDto.class);
 
@@ -59,7 +64,11 @@ public class QuizServiceImpl implements QuizService {
 			QuizEntity quizEntity = qR.findByQuizId(quizId);
 			if (quizEntity == null)
 				throw new UsernameNotFoundException(quizId);
-			BeanUtils.copyProperties(quizEntity, returnValue);
+			
+			System.out.println(quizEntity.toString());
+			
+			returnValue=new ModelMapper().map(quizEntity, QuizDto.class);
+		
 			return returnValue;
 	}
 
@@ -67,40 +76,36 @@ public class QuizServiceImpl implements QuizService {
 	public QuizDto updateQuiz(String quizId, QuizDto quizDto) {
 		QuizEntity quizEntity = qR.findByQuizId(quizId);
 		if (quizEntity==null) throw new UserServiceException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
-
-		BeanUtils.copyProperties(quizDto, quizEntity);	
-		
-		
-		QuizEntity updatedQuizDetails=qR.save(quizEntity);
-		QuizDto returnValue=new QuizDto();
-		BeanUtils.copyProperties(updatedQuizDetails, returnValue);	
+		quizEntity.setCategory(quizDto.getCategory());
+		quizEntity.setDescription(quizDto.getDescription());
+		quizEntity.setDifficulty(quizDto.getDifficulty());
+		quizEntity.setQuizName(quizDto.getQuizName());
+		quizEntity.setSubject(quizDto.getSubject());
+		quizEntity.setType(quizDto.getType());
 	
+		QuizEntity updatedQuizDetails=qR.save(quizEntity);
+		QuizDto returnValue=new ModelMapper().map(updatedQuizDetails,QuizDto.class);
 		return returnValue;
 	}
+	
+	
 
 	@Override
 	public void deleteQuiz(String quizId) {
 		QuizEntity quizEntity = qR.findByQuizId(quizId);	
 		if (quizEntity==null) throw new UserServiceException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
 		qR.delete(quizEntity);
-
 	}
 
 	@Override
-	public List<QuizDto> getQuizzes(int page, int limit) {
+	public List<QuizDto> getQuizzes(String loggedUserName) {	
 		List<QuizDto> returnValue = new ArrayList<>();
+		UserEntity loggedUser = uR.findByUserName(loggedUserName);	
+		List<QuizEntity> quizess = qR.findAllByUser(loggedUser);
 		
-		if (page>0) page--;
-		
-		Pageable pageableRequest = PageRequest.of(page,limit);
-		Page<QuizEntity> usersPage = qR.findAll(pageableRequest);
-		
-		for (QuizEntity quizEntity:usersPage) {
-			QuizDto quizDto = new QuizDto();
-			BeanUtils.copyProperties(quizEntity, quizDto);
-			returnValue.add(quizDto);
-		}
-		
+		for (QuizEntity qE:quizess) {		
+			returnValue.add(new ModelMapper().map(qE, QuizDto.class));
+		}		
 		return returnValue;
 	}
 

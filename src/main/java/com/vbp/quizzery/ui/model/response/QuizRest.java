@@ -8,6 +8,7 @@ import com.vbp.quizzery.shared.dto.QuestionDto;
 public class QuizRest {
 
 	
+	
 	private String quizId;
 	private String quizName;
 	private String description;
@@ -74,6 +75,11 @@ public class QuizRest {
 		this.questions = questions;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "QuizRest [quizId=" + quizId + ", quizName=" + quizName + ", description=" + description + ", subject="
+				+ subject + ", category=" + category + ", difficulty=" + difficulty + ", type=" + type
+				+ ", dateCreated=" + dateCreated + ", questions=" + questions + "]";
+	}
 	
 }

@@ -20,7 +20,7 @@ import com.vbp.quizzery.ui.model.response.RequestOperationStatus;
 import com.vbp.quizzery.ui.model.response.UserRest;
 
 @RestController
-@RequestMapping("dashboard/users")
+@RequestMapping("users")
 public class UserController {
 
 	@Autowired

@@ -15,9 +15,8 @@ public class QuizDto {
 	private String difficulty;	
 	private String type;
 	private Date dateCreated;	
-	private List<QuestionDto> questions;
-	
-	
+ 	private List<QuestionDto> questions;
+	private UserDto user;
 	
 	public long getId() {
 		return id;
@@ -79,7 +78,29 @@ public class QuizDto {
 	public void setQuestions(List<QuestionDto> questions) {
 		this.questions = questions;
 	}
+
+	public UserDto getUser() {
+		return user;
+	}
+	public void setUser(UserDto user) {
+		this.user = user;
+	}
 	
+	
+	@Override
+	public String toString() {
+		return "QuizDto [id=" + id + ", quizId=" + quizId + ", quizName=" + quizName + ", description=" + description
+				+ ", subject=" + subject + ", category=" + category + ", difficulty=" + difficulty + ", type=" + type
+				+ ", dateCreated=" + dateCreated /*+ ", questions=" + questions */+ "]";
+	}
+	
+	public void printQuiz() {
+		
+		System.out.println("id=" + id + "\nquizId=" + quizId + "\nquizName=" + quizName + "\ndescription=" + description
+				+ "\nsubject=" + subject + "\ncategory=" + category + "\ndifficulty=" + difficulty + "\ntype=" + type
+				+ "\ndateCreated=" + dateCreated);
+		
+	}
 	
 	
 	

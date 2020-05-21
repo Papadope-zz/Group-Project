@@ -1,29 +1,16 @@
-package com.vbp.quizzery.shared.dto;
+package com.vbp.quizzery.ui.model.request;
 
 import java.util.List;
 
+import com.vbp.quizzery.shared.dto.AnswerDto;
+import com.vbp.quizzery.shared.dto.QuizDto;
 
-public class QuestionDto {
+public class QuestionRequestModel {
 
-	private long id;
-	private String questionId;
 	private String questionText;	
 	private int points;	
 	private List<AnswerDto> answers;
-	private QuizDto quiz;
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getQuestionId() {
-		return questionId;
-	}
-	public void setQuestionId(String questionId) {
-		this.questionId = questionId;
-	}
 	public String getQuestionText() {
 		return questionText;
 	}
@@ -42,15 +29,5 @@ public class QuestionDto {
 	public void setAnswers(List<AnswerDto> answers) {
 		this.answers = answers;
 	}
-	public QuizDto getQuiz() {
-		return quiz;
-	}
-	public void setQuiz(QuizDto quiz) {
-		this.quiz = quiz;
-	}
-	
-	
-	
-	
-	
+
 }

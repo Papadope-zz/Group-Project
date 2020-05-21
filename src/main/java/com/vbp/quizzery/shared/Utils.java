@@ -19,6 +19,15 @@ public class Utils {
 		return generateRandomString(length);
 	}
 	
+	public String generateQuestionId(int length) {
+		return generateRandomString(length);
+	}
+	
+	public String generateAnswerId(int length) {
+		return generateRandomString(length);
+	}
+	
+	
 	
 	private String generateRandomString(int length) {
 

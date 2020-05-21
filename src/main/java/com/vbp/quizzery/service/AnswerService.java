@@ -6,6 +6,9 @@ import com.vbp.quizzery.shared.dto.AnswerDto;
 
 public interface AnswerService {
 
-	List<AnswerDto> getAnswers(String questionId);
-	AnswerDto getAnswer(String answerId);
+	public List<AnswerDto> getAnswers(String questionId);
+	public AnswerDto getAnswer(String answerId);
+	public AnswerDto createAnswer(String questionId, AnswerDto answer);
+	public AnswerDto updateAnswer(String answerId, AnswerDto answer);
+	public void deleteAnswer(String answerId);
 }

@@ -24,8 +24,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	@Override // configures some of the entry points as public or as protected
 	protected void configure(HttpSecurity http) throws Exception {
 				
-		http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL)
-				.permitAll().antMatchers(HttpMethod.GET, "/").permitAll().antMatchers("/css/**", "/js/**", "/images/**")
+		http.httpBasic().and().csrf().disable()
+		.authorizeRequests().antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL)
+				.permitAll().antMatchers(HttpMethod.GET, "/")
+				.permitAll().antMatchers("/css/**", "/js/**", "/images/**")
 				.permitAll()
 
 				.anyRequest().authenticated().and().formLogin().loginPage("/").permitAll()
