@@ -1,6 +1,8 @@
 package com.vbp.quizzery.shared.dto;
 
 import java.io.Serializable;
+
+import com.vbp.quizzery.security.UserRole;
 // Data trasfer Object between layers
 
 public class UserDto implements Serializable {
@@ -8,11 +10,11 @@ public class UserDto implements Serializable {
 	private static final long serialVersionUID = 1877500352336220102L;
 	private long id;// database id
 	private String userId;// public user id
-
 	private String userName;
 
 	private String email;
 	private String password;
+	private UserRole userRole;
 	private String encryptedPassword;
 	private String emailVerificationToken;
 	private Boolean emailVerificationStatus = false;
@@ -81,11 +83,20 @@ public class UserDto implements Serializable {
 		this.emailVerificationStatus = emailVerificationStatus;
 	}
 
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
+	}
+
 	@Override
 	public String toString() {
 		return "UserDto [id=" + id + ", userId=" + userId + ", userName=" + userName + ", email=" + email
-				+ ", password=" + password + ", encryptedPassword=" + encryptedPassword + ", emailVerificationToken="
-				+ emailVerificationToken + ", emailVerificationStatus=" + emailVerificationStatus + "]";
+				+ ", password=" + password + ", userRole=" + userRole + ", encryptedPassword=" + encryptedPassword
+				+ ", emailVerificationToken=" + emailVerificationToken + ", emailVerificationStatus="
+				+ emailVerificationStatus + "]";
 	}
 
 }

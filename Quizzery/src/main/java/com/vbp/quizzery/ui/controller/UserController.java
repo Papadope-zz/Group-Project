@@ -1,5 +1,6 @@
 package com.vbp.quizzery.ui.controller;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vbp.quizzery.security.UserRole;
 import com.vbp.quizzery.service.UserService;
 import com.vbp.quizzery.shared.dto.UserDto;
 import com.vbp.quizzery.ui.model.request.UserDetailsRequestModel;
@@ -42,13 +44,25 @@ public class UserController {
 
 		UserRest returnValue = new UserRest(); // object that contains properties that we can send back to user
 
-		UserDto userDto = new UserDto();// Data transfer object , we pass it around between layers with all the data
-		BeanUtils.copyProperties(userDetails, userDto); // get user data into a Data transfer object
+		// UserDto userDto = new UserDto();// Data transfer object , we pass it around
+		// between layers with all the data
+		// BeanUtils.copyProperties(userDetails, userDto); // get user data into a Data
+		// transfer object
+
+		ModelMapper modelMapper = new ModelMapper();
+
+		UserDto userDto = modelMapper.map(userDetails, UserDto.class);
+		userDto.setUserRole(UserRole.SIMPLE);
+		userDto.setEmailVerificationStatus(false);
 		System.out.println(userDto);
 
 		UserDto createdUser = userService.createUser(userDto); // service will add business logic
 
 		BeanUtils.copyProperties(createdUser, returnValue);
+
+		returnValue = modelMapper.map(createdUser, UserRest.class);
+
+		System.out.println(returnValue);
 
 		return returnValue;
 	}

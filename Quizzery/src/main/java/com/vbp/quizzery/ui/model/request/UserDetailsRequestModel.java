@@ -1,5 +1,7 @@
 package com.vbp.quizzery.ui.model.request;
 
+import com.vbp.quizzery.security.UserRole;
+
 //JSON with user data to java object , UI layer
 
 public class UserDetailsRequestModel {
@@ -10,12 +12,15 @@ public class UserDetailsRequestModel {
 
 	private String password;
 
+	private UserRole userRole;
+
 	public String getUserName() {
 		return userName;
 	}
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+
 	}
 
 	public String getEmail() {
@@ -32,6 +37,14 @@ public class UserDetailsRequestModel {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 
 }

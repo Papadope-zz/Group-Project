@@ -14,23 +14,27 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	private final UserService userDetailsService;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
+	private final CustomAuthenticationSuccessHandler successHandler;
 
-	public WebSecurity(UserService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
-
+	public WebSecurity(UserService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder,
+			CustomAuthenticationSuccessHandler successHandler) {
+		super();
 		this.userDetailsService = userDetailsService;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+		this.successHandler = successHandler;
 	}
 
 	@Override // configures some of the entry points as public or as protected
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL)
 				.permitAll().antMatchers(HttpMethod.GET, "/").permitAll().antMatchers("/css/**", "/js/**", "/images/**")
-				.permitAll()
 
-				.anyRequest().authenticated().and().formLogin().loginPage("/").permitAll()
-				.defaultSuccessUrl("/dashboard", true).and().rememberMe().and().logout().logoutUrl("/logout")
-				.clearAuthentication(true).invalidateHttpSession(true).deleteCookies("JSESSIONID", "remember-me")
-				.logoutSuccessUrl("/");
+				.permitAll().antMatchers("/confirm-account").permitAll().antMatchers("/accountVerified").permitAll()
+				.anyRequest()
+
+				.authenticated().and().formLogin().loginPage("/").permitAll().successHandler(successHandler).and()
+				.rememberMe().and().logout().logoutUrl("/logout").clearAuthentication(true).invalidateHttpSession(true)
+				.deleteCookies("JSESSIONID", "remember-me").logoutSuccessUrl("/");
 
 	}
 

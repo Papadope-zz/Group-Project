@@ -4,8 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import com.vbp.quizzery.security.UserRole;
 
 @Entity(name = "users")
 public class UserEntity implements Serializable {
@@ -32,7 +36,10 @@ public class UserEntity implements Serializable {
 	private String emailVerificationToken;
 
 	@Column(nullable = false)
-	private Boolean emailVerificationStatus = false;
+	private Boolean emailVerificationStatus;
+
+	@Enumerated(EnumType.STRING)
+	private UserRole userRole;
 
 	public long getId() {
 		return id;
@@ -88,6 +95,14 @@ public class UserEntity implements Serializable {
 
 	public void setEmailVerificationStatus(Boolean emailVerificationStatus) {
 		this.emailVerificationStatus = emailVerificationStatus;
+	}
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 
 }

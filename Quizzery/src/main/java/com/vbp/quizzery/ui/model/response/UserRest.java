@@ -1,5 +1,7 @@
 package com.vbp.quizzery.ui.model.response;
 
+import com.vbp.quizzery.security.UserRole;
+
 // response back to user , UI layer
 
 public class UserRest {
@@ -8,6 +10,7 @@ public class UserRest {
 	private String userName;
 
 	private String email;
+	private UserRole userRole;
 
 	public String getUserId() {
 		return userId;
@@ -31,6 +34,20 @@ public class UserRest {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
+	}
+
+	@Override
+	public String toString() {
+		return "UserRest [userId=" + userId + ", userName=" + userName + ", email=" + email + ", userRole=" + userRole
+				+ "]";
 	}
 
 }
