@@ -34,11 +34,12 @@ public class PaypalController {
 	public String payment(@ModelAttribute("order") OrderRequestModel order) {
 
 		try {
-
+			// creating payment with paypal API
 			Payment payment = service.createPayment(order.getPrice(), order.getCurrency(), order.getMethod(), "sale",
 					order.getDescription(), "http://localhost:8080/Quizzery/" + CANCEL_URL,
 					"http://localhost:8080/Quizzery/" + SUCCESS_URL);
 
+			// redirecting to paypal to pay
 			for (Links link : payment.getLinks()) {
 				if (link.getRel().equals("approval_url")) {
 					return "redirect:" + link.getHref();
@@ -57,7 +58,7 @@ public class PaypalController {
 
 	@GetMapping(value = CANCEL_URL)
 	public String cancelPay() {
-		return "cancel";
+		return "cancelpayment";
 
 	}
 
@@ -70,6 +71,7 @@ public class PaypalController {
 
 			if (payment.getState().equals("approved")) {
 
+				// getting the logged user...
 				Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 				String username;
@@ -84,11 +86,12 @@ public class PaypalController {
 
 				}
 
+				// ... and turning him to PREMIUM
 				UserEntity user = userRepository.findByEmail(username);
 				user.setUserRole(UserRole.PREMIUM);
 				userRepository.save(user);
 
-				return "success";
+				return "successpayment";
 			}
 
 		} catch (PayPalRESTException e) {

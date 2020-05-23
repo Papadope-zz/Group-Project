@@ -38,16 +38,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	}
 
-	@Override // setting the AuthenticationManagerBuilder the user details service that we
-				// will use and the encryption method we use to protect the user password
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
 	}
 
-	public AuthenticationFilter getAutheticationFilter() throws Exception {
-		final AuthenticationFilter filter = new AuthenticationFilter(authenticationManager());
-		filter.setFilterProcessesUrl("/users/login");
-
-		return filter;
-	}
 }

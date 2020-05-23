@@ -25,10 +25,10 @@ public class QuestionEntity implements Serializable{
 	@GeneratedValue
 	private long id;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private String questionId;
 
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String questionText;
 	
 	private int points;

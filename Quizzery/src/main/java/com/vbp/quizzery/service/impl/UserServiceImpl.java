@@ -50,22 +50,21 @@ public class UserServiceImpl implements UserService {
 		if (foundUser != null)
 			throw new RuntimeException("record exists"); // check if user already exists (unique email)
 
-//		UserEntity userEntity = new UserEntity();
-//		BeanUtils.copyProperties(user, userEntity);
-
 		ModelMapper modelMapper = new ModelMapper();
 		UserEntity userEntity = modelMapper.map(user, UserEntity.class);
 
 		String publicUserId = utils.generateUserId(30); // random user id 30 alphanumeric characters long
-		userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userEntity.setUserId(publicUserId);
 
-		UserEntity storedUserDetails = userRepository.save(userEntity);
+		userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword())); // encrypting user's password
 
-		VerificationToken verificationToken = new VerificationToken(userEntity);
+		UserEntity storedUserDetails = userRepository.save(userEntity); // saving user in db
 
-		verificationTokenRepository.save(verificationToken);
+		VerificationToken verificationToken = new VerificationToken(userEntity);// creating an email verification token
 
+		verificationTokenRepository.save(verificationToken); // saving token in db
+
+		// sending verification email
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setTo(userEntity.getEmail());
 		mailMessage.setSubject("Complete Registration!");
@@ -74,9 +73,6 @@ public class UserServiceImpl implements UserService {
 				+ "http://localhost:8080/Quizzery/confirm-account?token=" + verificationToken.getToken());
 
 		emailSenderService.sendEmail(mailMessage);
-
-		// UserDto returnValue = new UserDto();
-		// BeanUtils.copyProperties(storedUserDetails, returnValue);
 
 		UserDto returnValue = modelMapper.map(storedUserDetails, UserDto.class);
 

@@ -44,16 +44,14 @@ public class UserController {
 
 		UserRest returnValue = new UserRest(); // object that contains properties that we can send back to user
 
-		// UserDto userDto = new UserDto();// Data transfer object , we pass it around
-		// between layers with all the data
-		// BeanUtils.copyProperties(userDetails, userDto); // get user data into a Data
-		// transfer object
-
 		ModelMapper modelMapper = new ModelMapper();
 
 		UserDto userDto = modelMapper.map(userDetails, UserDto.class);
-		userDto.setUserRole(UserRole.SIMPLE);
-		userDto.setEmailVerificationStatus(false);
+
+		userDto.setUserRole(UserRole.SIMPLE);// register user with SIMPLE role
+
+		userDto.setEmailVerificationStatus(false); // setting that the user has not verified his email
+
 		System.out.println(userDto);
 
 		UserDto createdUser = userService.createUser(userDto); // service will add business logic

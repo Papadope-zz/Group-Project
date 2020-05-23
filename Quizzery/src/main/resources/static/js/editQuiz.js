@@ -1,3 +1,13 @@
+
+
+function getQueryStringValue (key) {  
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key)
+		  .replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+}  
+
+
+
+
 var index=2
 
 const save_question_btn = document.querySelector("#save_question_btn");
@@ -25,7 +35,7 @@ console.log(ans);
  
  
  console.log(Q);
-URL='http://localhost:8080/Quizzery/quizzes/UpnISJsGC92a74kRpUQz/questions';
+URL='http://localhost:8080/Quizzery/quizzes/'+getQueryStringValue("quizId")+"/questions/";
 
 $.ajax({
   url: URL,

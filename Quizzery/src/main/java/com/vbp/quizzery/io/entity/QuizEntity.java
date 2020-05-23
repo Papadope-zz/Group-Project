@@ -24,28 +24,28 @@ public class QuizEntity implements Serializable{
 	@GeneratedValue
 	private long id;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private String quizId;
 
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private String quizName;
 	
-	@Column(nullable = false, length = 120)
+	@Column(nullable = true, length = 120)
 	private String description;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private String subject;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private String category;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private String difficulty;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private String type;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private Date dateCreated;
 	
 	@OneToMany(mappedBy="quiz", cascade=CascadeType.ALL)
@@ -142,6 +142,13 @@ public class QuizEntity implements Serializable{
 
 	public void setUser(UserEntity user) {
 		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "QuizEntity [id=" + id + ", quizId=" + quizId + ", quizName=" + quizName + ", description=" + description
+				+ ", subject=" + subject + ", category=" + category + ", difficulty=" + difficulty + ", type=" + type
+				+ ", dateCreated=" + dateCreated + ", questions=" + questions + ", user=" + user + "]";
 	}
 	
 	

@@ -21,13 +21,13 @@ public class AnswerEntity implements Serializable {
 	@GeneratedValue
 	private long id;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = true, length = 50)
 	private String answerId;
 
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String answerText;
 		
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private Boolean correct;
 	
 	@ManyToOne
@@ -74,6 +74,12 @@ public class AnswerEntity implements Serializable {
 
 	public void setQuestion(QuestionEntity question) {
 		this.question = question;
+	}
+
+	@Override
+	public String toString() {
+		return "AnswerEntity [id=" + id + ", answerId=" + answerId + ", answerText=" + answerText + ", correct="
+				+ correct + ", question=" + question + "]";
 	}
 	
 	
