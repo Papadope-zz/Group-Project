@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!-- Papadope -->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Quizzery is powerful online test generator that will automatically mark and grade your quizzes. Create, send and start analyzing the results now.">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <title>Quizzery - easily create an online quiz</title>
+</head>
+
+<body>
+
+    <!-- Back To Top Button -->
+    <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+
+    <!-- Menu Section -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div id="mainMenu">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="images/logo.png" alt="Logo" onclick="window.location='index.html'" class="quizzeryLogo">
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-light">
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+                        <li>
+                            <a href="#featureSection">Features</a>
+                        </li>
+                        <li>
+                            <a href="#pricing">Plans</a>
+                        </li>
+                        <li>
+                            <a href="#contactSection">Contact</a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="form">
+
+                        <a role="button" class="btn btn-primary" href="#registerModal" data-toggle="modal">Sign Up</a>
+
+                        <a role="button" class="btn btn-success" href="#loginModal" data-toggle="modal">Login</a>
+
+                        <div class="ghost">
+                            <p style="color: red;">bad credentials</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Homepage Jumbotron Section -->
+    <div id="particles-js">
+        <div class="jumbotron" id="home">
+            <div class="container-a">
+                <div class="col-md-12 landingPage">
+                    <h1 class="h1Title">Powerful online test and quiz maker.</h1>
+                    <p class="textMainPage-1" style="pointer-events: none;">Create, send and analyze your tests, quizzes
+                        and assessments for FREE
+                        with
+                        Quizzery.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marketing Section -->
+    <div class="container homePageMarketing">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/images/compose.png" alt="create" style="width: 128px; height: 128px;">
+                <h2>Publish</h2>
+                <p>
+                    Quickly create great looking tests using multiple question types and formatting options.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img src="/images/upload.png" alt="publish" style="width: 128px; height: 128px;">
+                <h2>Publish</h2>
+                <p>
+                    Tests can either be published privately to a select group or open them up to everyone with a single
+                    link and registration page.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img src="/images/trends.png" alt="analyze" style="width: 128px; height: 128px;">
+                <h2>Analyze</h2>
+                <p>
+                    Quizzery instantly marks and grades your tests. Powerful reports then allow you to perform
+                    in-depth
+                    analysis across all responses.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why use Quizzery Section -->
+    <div class="homePageFeatures">
+        <div class="container">
+
+            <div class="page-header">
+                <h2>Why choose <strong>Quizzery</strong></h2>
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-font"></span>
+                    <h4>Auto-grading</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-stats"></span>
+                    <h4>Powerful reports</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-calendar"></span>
+                    <h4>Schedule your tests</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-eye-close"></span>
+                    <h4>Public and private tests</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-envelope"></span>
+                    <h4>Custom email invites</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-picture"></span>
+                    <h4>Include images</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-usd"></span>
+                    <h4>Free plan option</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-phone"></span>
+                    <h4>Mobile ready</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-th-list"></span>
+                    <h4>Multiple question types</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-lock"></span>
+                    <h4>Secured with SSL encryption</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-file"></span>
+                    <h4>PDF reports</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-cog"></span>
+                    <h4>Advanced configuration options</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-time"></span>
+                    <h4>Timed tests</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-user"></span>
+                    <h4>Respondent accounts</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-globe"></span>
+                    <h4>Access anywhere</h4>
+                </div>
+                <div class="col-xs-offset-1 col-xs-5 col-sm-3 col-sm-offset-0">
+                    <span class="featureIcon glyphicon glyphicon-facetime-video"></span>
+                    <h4>Include video</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Who Uses Quizzery Section -->
+    <div class="homePageUses">
+        <div class="container">
+            <div class="row text-center page-header">
+                <h2>Who uses <strong>Quizzery</strong></h2>
+            </div>
+            <div class="row text-center">
+                <div class="col-sm-4">
+                    <i class="fa fa-user fa-5x"></i>
+                    <h4>Individuals</h4>
+                    <p>Create fun social quizzes that you can post on your website, blog or other social media site. If
+                        you prefer privacy the advanced email options allow you to quickly send private quizzes to your
+                        friends. The review feature allows your friends to review their answers after they have
+                        completed the quiz.</p>
+                </div>
+                <div class="col-sm-4">
+                    <i class="fa fa-mortar-board fa-5x"></i>
+                    <h4>Teachers</h4>
+                    <p>Quickly create courses or online tests for your students. You can make your test public or just
+                        publish it for your class or school with our private test options. The premium account will
+                        allow you to upload media and have unlimited questions. The auto-grading function will save you
+                        time and allow you to concentrate on what's important.</p>
+                </div>
+                <div class="col-sm-4">
+                    <i class="fa fa-users fa-5x"></i>
+                    <h4>Businesses</h4>
+                    <p>Create online training and assessments to ensure your staff are always up to date with the right
+                        skills. The powerful reporting allows you to track your staff participation and progress.
+                        Quizzery implements SSL encryption and offers public and private options so you can be sure
+                        your assessments are always secure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Awesome Features Section -->
+    <div class="homePageKeyFunctions" id="featureSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center page-header">
+                        <h2>Awesome <strong>Features</strong></h2>
+                        <span class="center-line"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="homePageServices">
+                        <div class="homePageServicesIcon">
+                            <i class="fa fa-globe">
+                            </i>
+                        </div>
+                        <div class="homePageServicesInfo">
+                            <h4>Accesss anywhere</h4>
+                            <p>Being online allows you and your respondents to access, administer and take your quizzes
+                                from
+                                anywhere at anytime.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="homePageServices">
+                        <div class="homePageServicesIcon">
+                            <i class="fa fa-lock">
+                            </i>
+                        </div>
+                        <div class="homePageServicesInfo">
+                            <h4>Secured with SSL</h4>
+                            <p>With SSL encryption and utilising our advanced cloud infrastructure you can be sure your
+                                tests will always be secure.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="homePageServices">
+                        <div class="homePageServicesIcon">
+                            <i class="fa fa-check">
+                            </i>
+                        </div>
+                        <div class="homePageServicesInfo">
+                            <h4>Auto-grading</h4>
+                            <p>Quizzery can automatically mark and grade your assessments, saving you the time to
+                                concentrate on whats important.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="homePageServices">
+                        <div class="homePageServicesIcon">
+                            <i class="fa fa-clock-o">
+                            </i>
+                        </div>
+                        <div class="homePageServicesInfo">
+                            <h4>Timed tests</h4>
+                            <p>With Quizzery it is easy to set a time limit or allow your learners an unlimited amount
+                                of time to complete your assessment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="homePageServices">
+                        <div class="homePageServicesIcon">
+                            <i class="fa fa-flash">
+                            </i>
+                        </div>
+                        <div class="homePageServicesInfo">
+                            <h4>Custom Branding</h4>
+                            <p>Customize your tests by adding your own branding with your school or companies logo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="homePageServices">
+                        <div class="homePageServicesIcon">
+                            <i class="fa fa-eye">
+                            </i>
+                        </div>
+                        <div class="homePageServicesInfo">
+                            <h4>Public and Private quizzes</h4>
+                            <p>Tests can either be published privately to a select group or open them up to everyone
+                                with a single link and registration page.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Get Started For Free Section -->
+    <div class="homePageBottomJoinNow">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h4 class="animated slideInDown">QUIZZERY IS A POWERFUL ONLINE TEST GENERATOR</h4>
+                    <p>Build your own online tests and assessments with Quizzery for free.</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>
+                        <a class="btn btn-success btn-lg" role="button" href="#registerModal" data-toggle="modal">Get
+                            Started For Free</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricing" class="container-fluid">
+        <div class="text-center">
+            <h2>Pricing</h2>
+            <h4>Choose a payment plan that works for you</h4>
+        </div>
+        <div class="row slideanim">
+            <div class="col-sm-4 col-xs-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <h1>Free</h1>
+                    </div>
+                    <div class="panel-body">
+                        <p>Unlimited Quizzes</p>
+                        <p><strong>10</strong> questions per quiz</p>
+                        <p><strong>20</strong> responses per quiz</p>
+                        <p><strong>7</strong> question types</p>
+                        <p>Automatically calculate, score, grade</p>
+                        <p>Private and public sharing options</p>
+                        <p>Timed tests</p>
+                        <p>Analysis and reporting</p>
+                        <p>Randomize questions and options</p>
+                        <p>Answer feedback</p>
+                        <p>Personalize emails and welcome pages</p>
+                    </div>
+                    <div class="panel-footer">
+                        <h3>Free</h3>
+                        <h4>per month</h4>
+                        <a role="button" class="btn btn-lg" href="#registerModal" data-toggle="modal">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <h1>Premium</h1>
+                    </div>
+                    <div class="panel-body">
+                        <p>Unlimited questions per quiz</p>
+                        <p>Unlimited responses per quiz</p>
+                        <p><strong>2</strong> administrator / trainer accounts</p>
+                        <p>Certificates</p>
+                        <p>Question bank and question upload</p>
+                        <p>Customize branding, text and colors</p>
+                        <p>Sell tests and courses</p>
+                        <p>Quiz redirect</p>
+                        <p>Email notifications</p>
+                        <p>Make tests in any language</p>
+                        <p>and more…</p>
+                    </div>
+                    <div class="panel-footer">
+                        <h3>&#36;20</h3>
+                        <h4>per month</h4>
+                        <a role="button" class="btn btn-lg" href="#registerModal" data-toggle="modal">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <h1>Enterprise</h1>
+                    </div>
+                    <div class="panel-body">
+                        <p>Unlimited administrator / trainer accounts</p>
+                        <p>Phone and email support <strong>7</strong> days a week</p>
+                        <p>Personalize respondent portals</p>
+                        <p>Create custom groups</p>
+                        <p>APIs and Webhooks</p>
+                        <p><strong>100GB</strong> storage</p>
+                        <p>Quiz redirect</p>
+                        <p>Email notifications</p>
+                        <p>Make tests in any language</p>
+                        <p>Sell tests and courses</p>
+                        <p>and more…</p>
+                    </div>
+                    <div class="panel-footer">
+                        <h3>$49</h3>
+                        <h4>per month</h4>
+                        <a role="button" class="btn btn-lg" href="#registerModal" data-toggle="modal">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="contactUs" id="contactSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>
+                        <span>
+                            <i class="envelopeIcon fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </h2>
+                    <div>
+                        <strong>
+                            <h2>Drop us a Line</h2>
+                        </strong>
+                        <h4>
+                            Don't hesitate to contact us
+                        </h4>
+                        <form action="#" method="POST">
+                            <div class="row" id="formMargin">
+                                <div class="col-md-6 multi-horizontal" data-for="name">
+                                    <input type="text" class="form-control input" name="name" placeholder="Your Name"
+                                        required>
+                                </div>
+                                <div class="col-md-6 multi-horizontal" data-for="LastName">
+                                    <input type="text" class="form-control input" name="lastname"
+                                        placeholder="Your Last Name" required>
+                                </div>
+                                <div class="col-md-12" data-for="email">
+                                    <input type="text" class="form-control input" name="email" placeholder="Your email"
+                                        required>
+                                </div>
+                                <div class="col-md-12" data-for="message">
+                                    <input type="text" class="form-control input" name="message" placeholder="Message"
+                                        required>
+                                </div>
+                                <button href(#) type="submit" class="btn btn-primary btn-form display-4"
+                                    id="buttonContact">Contact
+                                    us</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="siteFooter">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Contact us</a>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Terms and Conditions</a>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Privacy Policy</a>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Help</a>
+                    </h5>
+                </div>
+
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <a href="#">Michalis Vardakis</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">Panagiotis Baroutas</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">Christos Papadopoulos</a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <h6>© 2020 - GroupProjectTeam</h6>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <form action="#" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Login</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <div class="clearfix">
+                                <label>Password</label>
+                                <a href="#" class="pull-right text-muted"><small>Forgot?</small></a>
+                            </div>
+                            <input type="password" class="form-control" required="required">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="btn btn-outline-dark" href="#" role="button">
+                                    <img width="30px" alt="Google sign-in"
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                                    Log in with Google</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="btn btn-outline-dark" href="#" role="button">
+                                    <img width="30px" alt="Facebook sign-in"
+                                        src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_William_Aditya_Sarana.png">
+                                    Log in with Facebook
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <label class="checkbox-inline pull-left"><input type="checkbox"> Remember me</label>
+                        <input type="submit" class="btn btn-success" value="Login">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <form action="#" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Register</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <div class="clearfix">
+                                <label>Password</label>
+                            </div>
+                            <input type="password" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <div class="clearfix">
+                                <label>Retype Password</label>
+                            </div>
+                            <input type="password" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" required="required">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="btn btn-outline-dark" href="#" role="button">
+                                    <img width="30px" alt="Google sign-in"
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                                    Sign up with Google</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="btn btn-outline-dark" href="#" role="button">
+                                    <img width="30px" alt="Facebook sign-in"
+                                        src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_William_Aditya_Sarana.png">
+                                    Sign up with Facebook
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <label class="checkbox-inline pull-left"><input type="checkbox" required="required"> Accept <a
+                                href="#">Terms and Conditions</a></label>
+                        <input type="submit" class="btn btn-primary" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/particles.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/javascript.js"></script>
+</body>
+
+</html>
