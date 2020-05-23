@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Papadope -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Quizzery is powerful online test generator that will automatically mark and grade your quizzes. Create, send and start analyzing the results now.">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.tiny.cloud/1/phfiev7odmw63qdxxuo9l2h45a8l6svepxirix5wfny7yd84/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <title>Quizzery - Create</title>
+</head>
+
+<body>
+
+    <!-- Menu Section -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div id="mainMenu">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="images/logo.png" alt="Logo" onclick="window.location='index.html'" class="quizzeryLogo">
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-light">
+                        <li>
+                            <a href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="users.html">Users</a>
+                        </li>
+                        <li>
+                            <a href="#">Reports</a>
+                        </li>
+                        <li>
+                            <a href="settings.html">Settings</a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="form">
+                        <a role="button" class="btn btn-success" href="#confirm-logout" data-toggle="modal">Logout</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secondary Menu Section -->
+    <ul class="nav nav-tabs" style="padding-top: 70px; padding-left: 50px;">
+
+        <li class="active">
+            <a href="editQuiz.html">Create</a>
+        </li>
+        <li class="nav-menu-secondary">
+            <a href="publish.html">Publish</a>
+        </li>
+        <li class="nav-menu-secondary">
+            <a href="analyze.html">Analyze</a>
+        </li>
+        <li class="nav-menu-secondary">
+            <a href="takequiz.html">Take a Quiz</a>
+        </li>
+    </ul>
+
+    <!-- Select action -->
+    <div class="container" style="padding-top: 20px;">
+        <div class="dropdown show" style="padding-bottom: 10px;">
+            <button type="button" class="btn btn-success btn-sm">Select action</button>
+            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"
+                aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a class="dropdown-item" href="#question" data-toggle="modal" role="button">Question</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                    <a class="dropdown-item" href="#textarea" data-toggle="modal" role="button">Text</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- How to use Create Section 1 -->
+    <div class="featuresNewDescription featuresNewDescriptionGray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>Select a question</h3>
+                    <ul>
+                        <li><strong>Question action.</strong> You can choose question type (E.g Radio buttons), write
+                            down your
+                            question and edit it however you want. Inside the options section, write down your possible
+                            answers
+                            and click the checkbox to save an answer as a correct one. Also, you can click on
+                            <strong>"Add
+                                Option"</strong> to add more. When you are ready and set, click on save button to
+                            proceed.</li>
+                    </ul>
+                </div>
+                <div class="col-md-7" style="padding-top: 20px;">
+                    <img id="myImg" class="featuresNewDiagram" src="images/howtousecreate.png"
+                        alt="How to use Question Action" style="width:100%;max-width:500px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal Picture 1-->
+    <div id="myModal" class="modal1">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <!-- How to use Create Section 2 -->
+    <div class="featuresNewDescription" style="padding-bottom: 200px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-push-7" style="padding-top: 40px;">
+                    <h3>Select a text</h3>
+                    <ul>
+                        <li><strong>Text action.</strong> A single space action, where you can write a text and edit it
+                            however you want. When you are ready and set, click on save button to
+                            proceed.</li>
+                    </ul>
+                </div>
+                <div class="col-md-7 col-md-pull-5" style="padding-top: 40px;">
+                    <img id="myImg1" class="featuresNewDiagram" src="/images/howtousecreate1.png"
+                        alt="How to use Text/Media" style="width: 100%;max-width: 500px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal Picture 2-->
+    <div id="myModal1" class="modal2">
+        <span class="close1">&times;</span>
+        <img class="modal-content1" id="img02">
+        <div id="caption1"></div>
+    </div>
+
+    <!-- Question Modal -->
+    <div class="modal fade questionModal" id="question" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="questionDialogTitle">New Question</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <label class="col-sm-3 control-label">Question Type</label>
+                        <button type="button" class="btn btn-default "><i class="glyphicon glyphicon-record"></i> Single
+                            Choice (Radio Button)</button>
+                    </div>
+                    <div style="padding-top: 20px;">
+                        <label class="col-sm-3 control-label">Question</label>
+                        <textarea id="expandText"></textarea>
+                    </div>
+                    <hr>
+                    <div style="padding-bottom: 20px" class="row">
+                        <label class="col-sm-3 control-label">Options</label>
+                        <div class="multi-field-wrapper col-sm-7">
+                            <div class="multi-fields input-group">
+                                <div class="multi-field" style="padding-bottom: 20px;">
+                                    <input type="text" class="form-control">
+                                    <input type="checkbox">&nbsp;Correct
+                                    <button type="button" class="remove-field btn btn-danger btn-sm"
+                                        style="float: right;">Remove</button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary add-field">Add Option</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="questionDialogCancelButton"
+                        data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Save</button>
+                    <a href="#" role="button" data-toggle="popover" title="You asked for it!"
+                        data-content="Simply click on 'add Option' button and when you are done click 'Save'"
+                        class="btn btn-info" style="float: left;">Help</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal Safety -->
+    <div class="modal fade" id="confirm-logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Are you sure you want to Logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-ok" href="/index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TextArea Modal -->
+    <div class="modal fade questionModal" id="textarea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Text / Media</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleTextarea">Textarea</label>
+                        <textarea id="exampleTextarea"></textarea>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Save</button>
+                    <a href="#" role="button" data-toggle="popover" title="You asked for it!"
+                        data-content="Simply click on textarea write your text and when you are ready click 'Save'"
+                        class="btn btn-info" style="float: left;">Help</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="siteFooter">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <a href="#">Michalis Vardakis</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">Panagiotis Baroutas</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">Christos Papadopoulos</a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <h6>© 2020 - GroupProjectTeam</h6>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back To Top Button -->
+    <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/javascript.js"></script>
+    <script type="text/javascript" src="js/modals.js"></script>
+
+    <!-- Rich text Editor Script -->
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+            toolbar_mode: 'floating',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+        });
+    </script>
+
+</body>
+
+</html>

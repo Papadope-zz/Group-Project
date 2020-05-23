@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<!-- Papadope -->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Quizzery is powerful online test generator that will automatically mark and grade your quizzes. Create, send and start analyzing the results now.">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <title>Quizzery - Dashboard</title>
+</head>
+
+<body>
+
+    <!-- Back To Top Button -->
+    <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+
+    <!-- Menu Section -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div id="mainMenu">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="images/logo.png" alt="Logo" onclick="window.location='index.html'" class="quizzeryLogo">
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-light">
+                        <li>
+                            <a href="#table_top">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="users.html">Users</a>
+                        </li>
+                        <li>
+                            <a href="#">Reports</a>
+                        </li>
+                        <li>
+                            <a href="settings.html">Settings</a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="form">
+
+                        <a role="button" class="btn btn-primary" href="#upgradeModal" data-toggle="modal">Upgrade
+                            Now</a>
+
+                        <a role="button" class="btn btn-success" href="#confirm-logout" data-toggle="modal">Logout</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Quiz Table Section -->
+    <div class="container" style="padding-top: 100px; padding-bottom: 20px;" id="table_top">
+        <div class="row">
+            <div class="col-12">
+                <div id="table-scroll" class="table-responsive">
+                    <table class="table table-bordered table table-hover" >
+                        <thead>
+                            <tr>
+                                <th scope="col">Day</th>
+                                <th scope="col">Quiz Name</th>
+                                <th scope="col">Analyze</th>
+                                <th scope="col">Preview</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="editQuiz.html" class="quizName"> First quiz  </a></td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-stats"></i>
+                                        Analyze</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-eye-open"></i> Preview</button>
+                                </td>
+                                <td>
+                                    <div class="dropdown show">
+                                        <button type="button" class="btn btn-success btn-sm">Select
+                                            action</button>
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Rename</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Copy</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Merge</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Delete</a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Move to folder</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="editQuiz.html" class="quizName">Second quiz ela ela ela ela</a></td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-stats"></i>
+                                        Analyze</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-eye-open"></i> Preview</button>
+                                </td>
+                                <td>
+                                    <div class="dropdown show">
+                                        <button type="button" class="btn btn-success btn-sm">Select
+                                            action</button>
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Rename</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Copy</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Merge</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Delete</a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Move to folder</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="editQuiz.html" class="quizName">Second quiz ela ela ela ela</a></td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-stats"></i>
+                                        Analyze</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-eye-open"></i> Preview</button>
+                                </td>
+                                <td>
+                                    <div class="dropdown show">
+                                        <button type="button" class="btn btn-success btn-sm">Select
+                                            action</button>
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Rename</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Copy</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Merge</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Delete</a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Move to folder</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="editQuiz.html" class="quizName">Second quiz ela ela ela ela</a></td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-stats"></i>
+                                        Analyze</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-eye-open"></i> Preview</button>
+                                </td>
+                                <td>
+                                    <div class="dropdown show">
+                                        <button type="button" class="btn btn-success btn-sm">Select
+                                            action</button>
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Rename</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Copy</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Merge</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Delete</a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Move to folder</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="editQuiz.html" class="quizName">Second quiz ela ela ela ela</a></td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-stats"></i>
+                                        Analyze</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-eye-open"></i> Preview</button>
+                                </td>
+                                <td>
+                                    <div class="dropdown show">
+                                        <button type="button" class="btn btn-success btn-sm">Select
+                                            action</button>
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Rename</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Copy</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Merge</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Delete</a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Move to folder</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="editQuiz.html" class="quizName">Second quiz ela ela ela ela</a></td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-stats"></i>
+                                        Analyze</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm"><i
+                                            class="glyphicon glyphicon-eye-open"></i> Preview</button>
+                                </td>
+                                <td>
+                                    <div class="dropdown show">
+                                        <button type="button" class="btn btn-success btn-sm">Select
+                                            action</button>
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Rename</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Copy</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Merge</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Delete</a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" role="button">Move to folder</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="padding-top: 20px;">
+                    <button data-toggle="modal" href="#newQuizModal" style="float: right;" role="button"
+                        class="btn btn-success">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Description Section Create a Quiz-->
+    <div class="featuresNewDescription featuresNewDescriptionGray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3>Quick and easy to create a Quiz</h3>
+                    <p>Quizzery provides a number of features in a clear and simple design to make it easy for you to
+                        use. We want to make it enjoyable for you to build a quiz that engages, challenges and tests the
+                        respondent.</p>
+                    <ul>
+                        <li>Choose from 7 questions types including; multiple choice, free format, picture choice and
+                            fill in the blanks</li>
+                        <li>Use pictures, images and videos to bring your questions and answers to life</li>
+                        <li>Add a time limit by question, page or the whole quiz</li>
+                        <li>Automatically randomize your question or answer options</li>
+                        <li>Import all your questions and answers from a spreadsheet</li>
+                    </ul>
+                </div>
+                <div class="col-md-5" style="padding-top: 20px;">
+                    <img class="featuresNewDiagram featuresNewDiagramRight featuresNewDiagramQuestion"
+                        src="/images/01.png" alt="Add question">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Description Section Customization Options-->
+    <div class="featuresNewDescription">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-md-push-5">
+                    <h3>Customization options</h3>
+                    <p><strong>Look and feel</strong> – tailor the quiz with your own company, school or universities branding, colors and images. The quiz can also be written in a number of languages to meet your requirements.</p>
+                    <p><strong>Layout</strong> – there are a number of ways you can configure the test from the number of questions per page to setting a time limit.</p>
+                    <p><strong>Communications</strong> – use the FlexiQuiz templates to create your own welcome, thank you and question feedback pages.  Include logos, images and videos to support and bring your message to life.</p>
+                </div>
+                <div class="col-md-5 col-md-pull-7" style="padding-top: 20px;">
+                    <img class="featuresNewDiagram featuresNewDiagramCustomize" src="/images/02.png" alt="Configuration">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feautures Description Section Publish and Distribute -->
+    <div class="featuresNewDescription featuresNewDescriptionGray" style="padding-bottom: 200px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3>Simple ways to publish and distribute quizzes</h3>
+                    <p>There are a choice of ways to share your test or quiz:</p>
+                    <ul>
+                        <li>FlexiQuiz provides you with a unique URL for inclusion in your own email, social media pages or website for respondents to access your quiz.</li>
+                        <li>FlexiQuiz can send an email directly to all participants and then track when they respond.</li>
+                        <li>Create private accounts for your teams or students so that all of their assigned tests or exams are in one place.</li>
+                    </ul>
+                </div>
+    
+                <div class="col-md-5">
+                    <img class="featuresNewDiagram featuresNewDiagramRight featuresNewDiagramPublish" src="/images/03.png" alt="Publish">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="siteFooter">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Contact us</a>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Terms and Conditions</a>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Privacy Policy</a>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <a href="#">Help</a>
+                    </h5>
+                </div>
+
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <a href="#">Michalis Vardakis</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">Panagiotis Baroutas</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">Christos Papadopoulos</a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <h6>© 2020 - GroupProjectTeam</h6>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upgrade Now Modal -->
+    <div id="upgradeModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div id="pricing" class="container-fluid">
+                    <div class="text-center">
+                        <h2>Pricing</h2>
+                        <h4>Choose a payment plan that works for you</h4>
+                    </div>
+                    <div class="row slideanim">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <h3>Free</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Unlimited Quizzes</p>
+                                    <p><strong>10</strong> questions per quiz</p>
+                                    <p><strong>20</strong> responses per quiz</p>
+                                    <p><strong>7</strong> question types</p>
+                                    <p>Automatically calculate, score, grade</p>
+                                    <p>Private and public sharing options</p>
+                                    <p>Timed tests</p>
+                                    <p>Analysis and reporting</p>
+                                    <p>Randomize questions and options</p>
+                                    <p>Answer feedback</p>
+                                    <p>Personalize emails and welcome pages</p>
+                                </div>
+                                <div class="panel-footer">
+                                    <h3>Free</h3>
+                                    <h4>per month</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <h3>Premium</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Unlimited questions per quiz</p>
+                                    <p>Unlimited responses per quiz</p>
+                                    <p><strong>2</strong> administrator / trainer accounts</p>
+                                    <p>Certificates</p>
+                                    <p>Question bank and question upload</p>
+                                    <p>Customize branding, text and colors</p>
+                                    <p>Sell tests and courses</p>
+                                    <p>Quiz redirect</p>
+                                    <p>Email notifications</p>
+                                    <p>Make tests in any language</p>
+                                    <p>Automate quiz</p>
+                                    <p>and more…</p>
+                                </div>
+                                <div class="panel-footer">
+                                    <h3>&#36;20</h3>
+                                    <h4>per month</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <h3>Enterprise</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Unlimited administrator / trainer accounts</p>
+                                    <p>Phone and email support <strong>7</strong> days a week</p>
+                                    <p>Personalize respondent portals</p>
+                                    <p>Create custom groups</p>
+                                    <p>APIs and Webhooks</p>
+                                    <p><strong>100GB</strong> storage</p>
+                                    <p>Quiz redirect</p>
+                                    <p>Email notifications</p>
+                                    <p>Make tests in any language</p>
+                                    <p>Sell tests and courses</p>
+                                    <p>and more…</p>
+                                </div>
+                                <div class="panel-footer">
+                                    <h3>$49</h3>
+                                    <h4>per month</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Upgrade</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="float: left">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal Safety -->
+    <div class="modal fade" id="confirm-logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Are you sure you want to Logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-ok" href="/index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Quiz Modal -->
+    <div class="modal fade" id="newQuizModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    New Quiz
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                        </div>
+                        <input type="text" class="form-control" style="width: 300px;" placeholder="Enter quiz name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-success btn-ok" href="">Begin Journey</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/javascript.js"></script>
+</body>
+
+</html>
