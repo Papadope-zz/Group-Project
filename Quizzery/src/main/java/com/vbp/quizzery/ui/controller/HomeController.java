@@ -21,4 +21,9 @@ public class HomeController {
 
 	}
 
+	@RequestMapping("/getQuizzeryChat")
+	public String getChat() {
+		return "messageChatBox";
+	}
+
 }

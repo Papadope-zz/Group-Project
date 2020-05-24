@@ -15,13 +15,15 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	private final UserService userDetailsService;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 	private final CustomAuthenticationSuccessHandler successHandler;
+	private CustomLogoutHandler logoutHandler;
 
 	public WebSecurity(UserService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder,
-			CustomAuthenticationSuccessHandler successHandler) {
-		super();
+			CustomAuthenticationSuccessHandler successHandler, CustomLogoutHandler logoutHandler) {
+
 		this.userDetailsService = userDetailsService;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 		this.successHandler = successHandler;
+		this.logoutHandler = logoutHandler;
 	}
 
 	@Override // configures some of the entry points as public or as protected
@@ -34,7 +36,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 				.authenticated().and().formLogin().loginPage("/").permitAll().successHandler(successHandler).and()
 				.rememberMe().and().logout().logoutUrl("/logout").clearAuthentication(true).invalidateHttpSession(true)
-				.deleteCookies("JSESSIONID", "remember-me").logoutSuccessUrl("/");
+				.deleteCookies("JSESSIONID", "remember-me").logoutSuccessUrl("/").addLogoutHandler(logoutHandler);
 
 	}
 
