@@ -10,12 +10,12 @@ $('#createNewQuizz').click(function(e){
 	
 	  var quizzName = {
 		
-	    quizName: $("#newQuizzName").val(),
-		description:"testDesc",
-		subject:"testSbj",
-		category:"testCat",
-		difficulty:"testDiff",
-		type:"testType"
+	    quizName: $("#newQuizName").val(),
+		description:"desc",
+		subject:$("#newSubject").val(),
+		category:$("#newCategory").val(),
+		difficulty:$("#newDifficulty").val(),
+		type:"type"
 	  };
 
 	 
@@ -69,74 +69,52 @@ response.map(function(quizz) {
   userQuizzes.innerHTML += 
 	  
              ` <tr>
-                  <th scope="row">${quizz.dateCreated}</th>
-                  <td>
-                    <a href="editQuiz.html?quizId=${quizz.quizId}" class="quizName" > ${quizz.quizName} </a>
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-secondary btn-sm">
-                      <i class="glyphicon glyphicon-stats"></i> Analyze
-                    </button>
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-secondary btn-sm">
-                      <i class="glyphicon glyphicon-eye-open"></i> Preview
-                    </button>
-                  </td>
-                  <td>
-                    <div class="dropdown show">
-                      <button type="button" class="btn btn-success btn-sm">
-                        Select action
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-success btn-sm dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li>
-                          <a class="dropdown-item" href="#" role="button"
-                            >Edit</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#" role="button"
-                            >Rename</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#" role="button"
-                            >Copy</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#" role="button"
-                            >Merge</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#" role="button"
-                            >Delete</a
-                          >
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                          <a class="dropdown-item" href="#" role="button"
-                            >Move to folder</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr> `;
+<th scope="row"> ${quizz.category}</th>
+<td> ${quizz.date} </td>
+<td>
+   ${quizz.quizName}
+</td>
+<td>
+   ${quizz.subject}
+</td>
+<td>
+   ${quizz.difficulty}
+</td>
+<td>
+    <div class="dropdown show">
+        <button type="button" class="btn btn-success btn-sm">Select
+            action</button>
+        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+            data-toggle="dropdown" aria-expanded="false" style="float: right;">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <a class="dropdown-item" href="#" role="button">Preview</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="/Quizzery/editQuiz?quizId=${quizz.quizId}" role="button">Edit</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#" role="button">Analyze</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <a class="dropdown-item" href="#" role="button">Delete</a>
+            </li>
+        </ul>
+    </div>
+
+</td>
+</tr>
+
+                 `;
 	 
          });  
       }
  });
+
 
 
 

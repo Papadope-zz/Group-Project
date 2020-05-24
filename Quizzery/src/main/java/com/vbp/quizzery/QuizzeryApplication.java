@@ -10,13 +10,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.vbp.quizzery.security.AppProperties;
 
 @SpringBootApplication
-public class QuizzeryApplication extends SpringBootServletInitializer {
+public class QuizzeryApplication  /* extends SpringBootServletInitializer */{
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-
-		return builder.sources(QuizzeryApplication.class);
-	}
+//	@Override
+//	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+//
+//		return builder.sources(QuizzeryApplication.class);
+//	}
 
 	public static void main(String[] args) {
 
