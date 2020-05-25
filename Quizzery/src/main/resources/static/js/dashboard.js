@@ -41,6 +41,27 @@ var json= JSON.stringify(quizzName);
 
 
 
+const deleteQuiz =(quizId)=>{
+	
+	console.log("deeteeee")
+	
+	
+	$.ajax({
+		  url: 'http://localhost:8080/Quizzery/quizzes/'+quizId,
+		  type: 'DELETE',
+		  dataType: 'json',
+		   data: "",
+		  contentType: 'application/json',
+		  success: response => {
+			  console.log(response);
+			  window.location.href = "/Quizzery/dashboard"  
+		  }
+	
+})
+}
+
+
+
 
 
 
@@ -56,17 +77,15 @@ $.ajax({
   contentType: 'application/json',
   success: response => {
    console.log(response);
-	  
-   
-   
-   
+	
    
 userQuizzes.innerHTML = "";
- 
+let innerString ="" 
+
 response.map(function(quizz) {
 	
 
-  userQuizzes.innerHTML += 
+ innerString += 
 	  
              ` <tr>
 <th scope="row"> ${quizz.category}</th>
@@ -97,24 +116,26 @@ response.map(function(quizz) {
                 <a class="dropdown-item" href="/Quizzery/editQuiz?quizId=${quizz.quizId}" role="button">Edit</a>
             </li>
             <li>
-                <a class="dropdown-item" href="#" role="button">Analyze</a>
+                <a class="dropdown-item"   role="button">Analyze</a>
             </li>
             <li role="separator" class="divider"></li>
             <li>
-                <a class="dropdown-item" href="#" role="button">Delete</a>
+                <a class="dropdown-item" onclick='deleteQuiz("${quizz.quizId}")' role="button">Delete</a>
             </li>
         </ul>
     </div>
 
 </td>
-</tr>
+</tr>`; }); 
 
-                 `;
+   userQuizzes.innerHTML= innerString;              
 	 
-         });  
-      }
- });
+      }    
+    
+});
 
+    
+ 
 
 
 

@@ -33,7 +33,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <img src="images/logo.png" alt="Logo" onclick="window.location='/Quizzery'" class="quizzeryLogo">
+                    <img src="images/logo.png" alt="Logo" onclick="window.location='index.html'" class="quizzeryLogo">
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-light">
@@ -77,25 +77,21 @@
 
     <!-- Select action -->
     <div class="container" style="padding-top: 20px;">
-        <div class="dropdown show" style="padding-bottom: 10px;">
-            <button type="button" class="btn btn-success btn-sm">Select action</button>
-            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"
-                aria-expanded="false">
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li>
-                    <a class="dropdown-item" href="#question" data-toggle="modal" role="button">Question</a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                    <a class="dropdown-item" href="#textarea" data-toggle="modal" role="button">Text</a>
-                </li>
-
-            </ul>
+        <div class="col-md-12" style="padding-bottom: 10px; ">
+            <a class="btn btn-success" href="#question" data-toggle="modal" role="button" style="float: right;"> Create Questions</a>
         </div>
-    </div>
+        
+        <div id="userQuestions"></div>
+        
+        
+   
+    
+    <hr>
+    <hr>
+
+
+    <!-- Created OR Imported from DB questions -->
+
 
     <!-- How to use Create Section 1 -->
     <div class="featuresNewDescription featuresNewDescriptionGray">
@@ -161,13 +157,11 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-          
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title" id="questionDialogTitle">New Question</h4>
                 </div>
                 <div class="modal-body">
-                    
                     <div class="row">
                         <label class="col-sm-3 control-label">Question Type</label>
                         <button type="button" class="btn btn-default "><i class="glyphicon glyphicon-record"></i> Single
@@ -182,9 +176,9 @@
                         <label class="col-sm-3 control-label">Options</label>
                         <div class="multi-field-wrapper col-sm-7">
                             <div class="multi-fields input-group">
-                                <div class="ans-1 multi-field" style="padding-bottom: 20px;">
-                                    <input type="text" class="ansText form-control" name="answerText">
-                                    <input type="checkbox" class="ansCor" name="correct" value="true">&nbsp;Correct
+                                <div class="multi-field" style="padding-bottom: 20px;"  name="answerContainer">
+                                    <input type="text" class="form-control" name="answer" >
+                                    <input type="checkbox" id="correctBox">&nbsp;Correct
                                     <button type="button" class="remove-field btn btn-danger btn-sm"
                                         style="float: right;">Remove</button>
                                 </div>
@@ -192,21 +186,20 @@
                             <button type="button" class="btn btn-primary add-field">Add Option</button>
                         </div>
                     </div>
-                
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" id="questionDialogCancelButton"
                         data-dismiss="modal">Cancel</button>
-                  <button type="button" id="save_question_btn" class="btn btn-success">Save</button>
-                  
-                  <a href="#" role="button" data-toggle="popover" title="You asked for it!"
+                    <button type="button" class="btn btn-success" id="save_question_btn" >Save</button>
+                    <a href="#" role="button" data-toggle="popover" title="You asked for it!"
                         data-content="Simply click on 'add Option' button and when you are done click 'Save'"
                         class="btn btn-info" style="float: left;">Help</a>
                 </div>
-    
             </div>
         </div>
     </div>
+
     <!-- Logout Modal Safety -->
     <div class="modal fade" id="confirm-logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -217,13 +210,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger btn-ok" href="/index.html">Logout</a>
+                    <a class="btn btn-danger btn-ok" href="logout">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- TextArea Modal -->
+    <!-- TextArea Modal
     <div class="modal fade questionModal" id="textarea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -248,7 +241,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Footer Section -->
     <div class="siteFooter">
@@ -275,11 +268,8 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="js/javascript.js"></script>
-     <script type="text/javascript" src="js/modals.js"></script>
-     <script type="text/javascript" src="js/editQuiz.js"></script>
-     
-     
-
+    <script type="text/javascript" src="js/modals.js"></script>
+<script type="text/javascript" src="js/editQuiz.js"></script>
     <!-- Rich text Editor Script -->
     <script>
         tinymce.init({
