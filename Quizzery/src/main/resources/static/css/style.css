@@ -872,3 +872,17 @@ a.list-group-item,
   height: 70px;
   border-radius: 50%;
 }
+
+.open-button {
+    background-color: #76c2af;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 50px;
+    width: 200px;
+}

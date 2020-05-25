@@ -32,6 +32,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 				.permitAll().antMatchers(HttpMethod.GET, "/").permitAll().antMatchers("/css/**", "/js/**", "/images/**")
 
 				.permitAll().antMatchers("/confirm-account").permitAll().antMatchers("/accountVerified").permitAll()
+				.antMatchers("/403").permitAll().antMatchers("/404").permitAll()
+
+				.antMatchers("/dashboard/**").hasAuthority("PREMIUM").antMatchers("/editQuiz/**")
+				.hasAuthority("PREMIUM").antMatchers("/getQuizzeryChat/**").hasAuthority("PREMIUM")
+
 				.anyRequest()
 
 				.authenticated().and().formLogin().loginPage("/").permitAll().successHandler(successHandler).and()
