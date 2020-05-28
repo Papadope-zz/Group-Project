@@ -4,108 +4,105 @@ let questions = [];
 let editingQuestionId;
 
 
-const getQuestionFromList = (id, questionList)=>{
-	
-	 for (q of questionList) {
-	        if (q.questionId == id) {
-	        	
-	        	return q;
-	        }
-	
-     }
 
-}
+
 
 function fillModal(questId) {
     console.log(questId);
     editingQuestionId=questId;
     
-  
-           q= getQuestionFromList(questId,questions);
-        
+    for (q of questions) {
+        if (q.questionId == questId) {
             tinyMCE.activeEditor.setContent(q.questionText, { format: 'raw' });
             console.log(q.questionId)
 
-           $("#hiddenQuestionId").attr('value',questId );
-            
-            // modal form , creating options dynamically
+            // modal form / creating options dynamically
 
      
             
-           $("#edit_multi-field-wrapper").each(function () {
-        	   
-        	   console.log("counter each")
-                var $wrapper = $("#edit-multi-fields", this);
+            $(".multi-field-wrapper").each(function () {
+                var $wrapper = $(".multi-fields", this);
                 for (let i = 0; i < q.answers.length; i++) {
-               
-                	console.log("counter  for")	
-                	
                     if (i == 0) {
-                    	 console.log(q.answers[i].correct+" "+q.answers[i].answerText)
-                    	 
-                    	 
-                        $("#edit-multi-field:first-child", $wrapper)
-                            .find("input")                                 // filling answer input
+                        $(".multi-field:first-child", $wrapper)
+                            .find("input")
                             .val(q.answers[i].answerText);
-                            
-                             $("#edit-multi-field:first-child", $wrapper)
-                            .find("input[type=checkbox]")                  // filling correct answer
-                            .prop( "checked", q.answers[i].correct );
                        
-                             $("#edit-multi-field:first-child", $wrapper)
-                             .find("#hiddenAnswerId")  
-                             .attr('value',q.answers[i].answerId );
-                             
-                             
-                             
-                             
-                 
+                       
+                        
+                       
+                        if(q.answers[i].correct===true){
+                        	 console.log(q.answers[i].correct)
+                        	
+                       	 $(".multi-field:first-child", $wrapper)
+                            .find("#correctBox")
+                            .prop( "checked", true );
+            
+                      }else{
+                    	  
+                    	  $(".multi-field:first-child", $wrapper)
+                          .find("#correctBox")
+                          .prop( "checked", false );
+                    	  
+                      }
+                        
+                        
                         
                     } else {
-                        console.log(q.answers[i].correct+" "+q.answers[i].answerText)
-                        $("#edit-multi-field:first-child", $wrapper)
-                            .clone(true)                                     //if there is more than one answers make new fields
+                        console.log(typeof (q.answers[i].correct));
+                        $(".multi-field:first-child", $wrapper)
+                            .clone(true)
                             .appendTo($wrapper)
                             .find("input")
-                            .val(q.answers[i].answerText)  ;
-                         
-                            $("#edit-multi-field:last-child", $wrapper)
-                            .find("input[type=checkbox]")
-                            .prop( "checked", q.answers[i].correct );
-                            
+                            .val(q.answers[i].answerText);
+                        
+                     
+                        
+                        if(q.answers[i].correct===true){
+                        	   console.log(q.answers[i].correct)
+                        	
+                       	 $(".multi-field:first-child", $wrapper)
+                            .find("#correctBox")
+                            .prop( "checked", true );
+                       	
+                       }
+                        
+                        else{
+                      	  
+                      	  $(".multi-field:first-child", $wrapper)
+                            .find("#correctBox")
+                            .prop( "checked", false );
+                      	  
+                        }
+                        
+                        
+                        
+                    }
+                    console.log(a.answerText);
 
-                            $("#edit-multi-field:last-child", $wrapper)
-                            .find("#hiddenAnswerId") 
-                            .attr('value',q.answers[i].answerId );
-                            
+
+                    $(".multi-field .remove-field", $wrapper).show();
                 }
-                
-                    
-               $("#edit-multi-field .remove-field", $wrapper).show();
-                }
-           
-                $('#edit-multi-field .remove-field', $wrapper).click(function () {
-                    if ($('#edit-multi-field', $wrapper).length > 1) {
-                        $(this).parent('#edit-multi-field').remove();
+
+                $('.multi-field .remove-field', $wrapper).click(function () {
+                    if ($('.multi-field', $wrapper).length > 1) {
+                        $(this).parent('.multi-field').remove();
                     }
                     adjustButtonVisiblity();
                 });
 
 
                 adjustButtonVisiblity();
-                
-              
-           
                 function adjustButtonVisiblity() {
                     if ($('.multi-field', $wrapper).length == 1) {
                         $('.multi-field .remove-field', $wrapper).hide();
                     }
                 }
-           });
-           
-        
-    }
+            });
 
+        }
+    }
+}
 
 
 
@@ -118,17 +115,13 @@ const deleteQuestion = (questionId) => {
         type: 'DELETE',
         dataType: 'json',
         data: "",
-        async: false,
         contentType: 'application/json',
         success: response => {
             console.log(response);
             window.location.href = "/Quizzery/dashboard"
         }
-        
+
     })
-    
-      window.location.reload();
-    
 }
 
 
@@ -157,7 +150,7 @@ $.ajax({
         response1.map(function (question) {
 
 
-            innerString += `  <br>
+            userQuestions.innerHTML += `  <br>
 	                 <hr class="style-eight">
 	                  <div class="" style="background-color: white;">
 	                  <div class="">
@@ -165,25 +158,22 @@ $.ajax({
 
 
             for (a of question.answers) {
-            	innerString +=
+                userQuestions.innerHTML +=
 
                     `<input type="radio" id="" name="" >
 	                <label for="male">${a.answerText}</label><br>  `;
             }
 
             console.log(question.questionId);
-            innerString +=
+            userQuestions.innerHTML +=
                 `  </div>
 	            <div class="">
 	                <button class="btn btn-primary" id="${question.questionId}" href="#questionEdit" data-toggle="modal" role="button"  onclick='fillModal(this.id)'>Edit</button>
-	                <button class="btn btn-danger" onclick='deleteQuestion("${question.questionId}")' href=  >Delete</button>
+	                <button class="btn btn-danger" onclick='deleteQuestion("${question.questionId}")'  >Delete</button>
 	            </div>
 	        </div>  `
 
         });
-        
-        
-        userQuestions.innerHTML += innerString;
 
     }
 });
@@ -217,7 +207,7 @@ const readQuestionFromNewModal= ()=>{
 
 
 
-// ajax for create question
+// ajax for cteate question
 
 const save_question_btn = document.querySelector("#save_question_btn");
 save_question_btn.addEventListener("click", function () {
@@ -231,7 +221,6 @@ save_question_btn.addEventListener("click", function () {
             url: URL,
             type: 'POST',
             dataType: 'json',
-            async: false,
             data: readQuestionFromNewModal(),
             contentType: 'application/json',
             success: response => {
@@ -240,7 +229,7 @@ save_question_btn.addEventListener("click", function () {
         });
     
 
-        window.location.reload();
+
 
 });
 
@@ -257,8 +246,7 @@ const readQuestionFromEditModal= ()=>{
    $("div[name=answerContainerEdit]").each(function () {
        let answer = {};
        answer.answerText = $(this).children("input[name=answerEdit]").val();
-       answer.correct = $(this).children("input[type=checkbox]").prop('checked');
-       answer.answerId=$(this).children("input[id=hiddenAnswerId]").val();
+       answer.correct = $(this).children("input[type=checkboxEdit]").prop('checked');
        answerList.push(answer);
    });
    console.log(answerList);
@@ -272,6 +260,11 @@ const readQuestionFromEditModal= ()=>{
    return Q
 	
 }
+
+
+
+
+
 
 
 
@@ -289,16 +282,12 @@ console.log(readQuestionFromEditModal());
         url: URL,
         type: 'PUT',
         dataType: 'json',
-        async: false,
         data: readQuestionFromEditModal(),
         contentType: 'application/json',
         success: response => {
             console.log(response);
         }
     });
-    
-    window.location.reload();
-    
 });
 
 

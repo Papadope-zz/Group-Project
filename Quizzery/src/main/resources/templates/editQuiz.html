@@ -138,7 +138,7 @@
                     </ul>
                 </div>
                 <div class="col-md-7 col-md-pull-5" style="padding-top: 40px;">
-                    <img id="myImg1" class="featuresNewDiagram" src="/images/howtousecreate1.png"
+                    <img id="myImg1" class="featuresNewDiagram" src="images/howtousecreate1.png"
                         alt="How to use Text/Media" style="width: 100%;max-width: 500px;">
                 </div>
             </div>
@@ -174,7 +174,7 @@
                     <hr>
                     <div style="padding-bottom: 20px" class="row">
                         <label class="col-sm-3 control-label">Options</label>
-                        <div class="multi-field-wrapper col-sm-7">
+                        <div class="multi-field-wrapper col-sm-7"   id="crate_multi-field-wrapper" >
                             <div class="multi-fields input-group">
                                 <div class="multi-field" style="padding-bottom: 20px;"  name="answerContainer">
                                     <input type="text" class="form-control" name="answer" >
@@ -203,7 +203,7 @@
     
     
     
-    <!-- Question Modal 2 (edit modal) -->
+    <!-- Edit Modal -->
     <div class="modal fade questionModal" id="questionEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -220,14 +220,16 @@
                     </div>
                     <div style="padding-top: 20px;">
                         <label class="col-sm-3 control-label">Question</label>
+                        <input id="hiddenQuestionId" name="prodId" type="hidden" value="">
                         <textarea id="expandTextEdit"></textarea>
                     </div>
                     <hr>
                     <div style="padding-bottom: 20px" class="row">
                         <label class="col-sm-3 control-label">Options</label>
-                        <div class="multi-field-wrapper col-sm-7">
-                            <div class="multi-fields input-group">
-                                <div class="multi-field" style="padding-bottom: 20px;"  name="answerContainerEdit">
+                        <div class="multi-field-wrapper col-sm-7"  id="edit_multi-field-wrapper">
+                            <div class="multi-fields input-group"   id="edit-multi-fields">
+                                <div class="multi-field" style="padding-bottom: 20px;"  name="answerContainerEdit"   id="edit-multi-field">
+                                 <input id="hiddenAnswerId" name="prodId" type="hidden" value="">
                                     <input type="text" class="form-control" name="answerEdit" >
                                     <input type="checkbox" id="correctBoxEdit">&nbsp;Correct
                                     <button type="button" class="remove-field btn btn-danger btn-sm"
@@ -317,6 +319,9 @@
             </div>
         </div>
     </div>
+    <!-- Chat Button -->
+    <button class="open-button" onclick=window.location='http://localhost:8080/Quizzery/getQuizzeryChat'>Chat</button>
+    
 
     <!-- Back To Top Button -->
     <a id="back2Top" title="Back to top" href="#">&#10148;</a>

@@ -57,7 +57,7 @@ const deleteQuiz =(quizId)=>{
 			  window.location.href = "/Quizzery/dashboard"  
 		  }
 	
-})
+   })
 }
 
 

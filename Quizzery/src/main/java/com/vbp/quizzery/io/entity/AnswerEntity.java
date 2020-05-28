@@ -1,8 +1,8 @@
 package com.vbp.quizzery.io.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,32 +10,28 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-
-@Entity(name="answers")
+@Entity(name = "answers")
 public class AnswerEntity implements Serializable {
-
 
 	private static final long serialVersionUID = -8748618750495177095L;
 
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@Column(nullable = true, length = 50)
 	private String answerId;
 
 	@Column(nullable = true)
 	private String answerText;
-		
+
 	@Column(nullable = true)
 	private Boolean correct;
-	
-	@ManyToOne
-	@JoinColumn(name="question_id")
+
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "question_id")
 	private QuestionEntity question;
 
-	
-	
 	public long getId() {
 		return id;
 	}
@@ -81,7 +77,5 @@ public class AnswerEntity implements Serializable {
 		return "AnswerEntity [id=" + id + ", answerId=" + answerId + ", answerText=" + answerText + ", correct="
 				+ correct + ", question=" + question + "]";
 	}
-	
-	
-	
+
 }
