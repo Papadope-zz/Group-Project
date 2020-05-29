@@ -87,8 +87,6 @@ public class QuestionServiceImpl implements QuestionService {
 
 		ModelMapper mm = new ModelMapper();
 
-		// aR.deleteByQuestion(questionEntity);
-
 		QuestionEntity questionEntity = quesR.findByQuestionId(questionId);
 		if (questionEntity == null)
 			throw new UserServiceException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());

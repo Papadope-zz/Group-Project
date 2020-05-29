@@ -89,7 +89,7 @@ response.map(function(quizz) {
 	  
              ` <tr>
 <th scope="row"> ${quizz.category}</th>
-<td> ${quizz.date} </td>
+<td> ${quizz.dateCreated} </td>
 <td>
    ${quizz.quizName}
 </td>

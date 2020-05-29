@@ -26,25 +26,44 @@ function fillModal(questId) {
             tinyMCE.activeEditor.setContent(q.questionText, { format: 'raw' });
             console.log(q.questionId)
 
-           $("#hiddenQuestionId").attr('value',questId );
-            
-            // modal form , creating options dynamically
+          
+          
 
+          
+       // remove fields from previous edits
+            let removeCounter=0;                                  
+            $("div[id=edit-multi-field]").each(function () {
+           
+            removeCounter++;
+          
+            if(removeCounter>1)    {  
+            	 console.log("remove counter : "+removeCounter);
+            	this.remove();
+            	} 
+            
+           
+        	
+            });
+               
+            
+             $("#hiddenQuestionId").attr('value',questId );  //filling hidden field with question id
+            
+            
+            
+      // modal form , creating options dynamically
      
             
            $("#edit_multi-field-wrapper").each(function () {
         	   
-        	   console.log("counter each")
+        	  
                 var $wrapper = $("#edit-multi-fields", this);
                 for (let i = 0; i < q.answers.length; i++) {
                
-                	console.log("counter  for")	
+            
                 	
                     if (i == 0) {
-                    	 console.log(q.answers[i].correct+" "+q.answers[i].answerText)
-                    	 
-                    	 
-                        $("#edit-multi-field:first-child", $wrapper)
+                    	
+                   $("#edit-multi-field:first-child", $wrapper)
                             .find("input")                                 // filling answer input
                             .val(q.answers[i].answerText);
                             
@@ -54,7 +73,7 @@ function fillModal(questId) {
                        
                              $("#edit-multi-field:first-child", $wrapper)
                              .find("#hiddenAnswerId")  
-                             .attr('value',q.answers[i].answerId );
+                             .attr('value',q.answers[i].answerId );                 //adding hidden field with answer id
                              
                              
                              
