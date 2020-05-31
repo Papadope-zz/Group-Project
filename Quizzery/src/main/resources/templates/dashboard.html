@@ -75,6 +75,7 @@
                                 <th scope="col">Quiz Name</th>
                                 <th scope="col">Subject</th>
                                 <th scope="col">Difficulty</th>
+                                <th scope="col">No of Questions</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -396,6 +397,33 @@
             </div>
         </div>
     </div>
+    
+     <!-- Preview Modal -->
+        <div class="modal fade" id="previewQuiz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="quizTitle"></h4>
+                </div>
+                <div class="modal-body">
+
+    				<div id="quizQuestions"></div>
+    				
+    				
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="quizPreviewCloseButton"
+                        data-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
 <!-- Chat Button -->
     <button class="open-button" onclick=window.location='http://localhost:8080/Quizzery/getQuizzeryChat'>Chat</button>
 

@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 		ModelMapper modelMapper = new ModelMapper();
 		UserEntity userEntity = modelMapper.map(user, UserEntity.class);
 
-		String publicUserId = utils.generateUserId(30); // random user id 30 alphanumeric characters long
+		String publicUserId = utils.generateUserId(); // random user id 30 alphanumeric characters long
 		userEntity.setUserId(publicUserId);
 
 		userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword())); // encrypting user's password

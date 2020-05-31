@@ -10,22 +10,28 @@ public class Utils {
 
 	private final Random RANDOM = new SecureRandom();
 	private final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-	public String generateUserId(int length) {
-		return generateRandomString(length);
+	
+	private final int USER_ID_LENGTH=30;
+	private final int QUIZ_ID_LENGTH=20;
+	private final int QUESTION_ID_LENGTH=20;
+	private final int ANSWER_ID_LENGTH=20;
+	
+	public String generateUserId() {
+		return generateRandomString(USER_ID_LENGTH);
 	}
 
-	public String generateQuizId(int length) {
-		return generateRandomString(length);
+	public String generateQuizId() {
+		return generateRandomString(QUIZ_ID_LENGTH);
 	}
 
-	public String generateQuestionId(int length) {
-		return generateRandomString(length);
+	public String generateQuestionId() {
+		return generateRandomString(QUESTION_ID_LENGTH);
 	}
 
-	public String generateAnswerId(int length) {
-		return generateRandomString(length);
+	public String generateAnswerId() {
+		return generateRandomString(ANSWER_ID_LENGTH);
 	}
+
 
 	private String generateRandomString(int length) {
 

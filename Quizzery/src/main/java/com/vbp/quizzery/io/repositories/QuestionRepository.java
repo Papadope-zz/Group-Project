@@ -14,5 +14,5 @@ public interface QuestionRepository extends CrudRepository<QuestionEntity, Long>
 
 	public List<QuestionEntity> findAllByQuiz(QuizEntity quiz);
 	public QuestionEntity findByQuestionId(String questionId);
-	
+	public List<QuestionEntity> findAll();
 }

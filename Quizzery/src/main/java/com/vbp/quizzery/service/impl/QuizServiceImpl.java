@@ -50,7 +50,7 @@ public class QuizServiceImpl implements QuizService {
 		QuizEntity quizEntity=mM.map(quiz, QuizEntity.class);	
 		quizEntity.setUser(uR.findByUserName(loggedUserName));
 		quizEntity.setDateCreated(new Date());
-		quizEntity.setQuizId(utils.generateUserId(20)); // random  id 20 alphanumeric characters long
+		quizEntity.setQuizId(utils.generateUserId()); // random  id 20 alphanumeric characters long
 		
 		QuizEntity storedQuizDetails = qR.save(quizEntity);
 		QuizDto returnValue = mM.map(storedQuizDetails, QuizDto.class);

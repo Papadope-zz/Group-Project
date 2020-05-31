@@ -59,7 +59,7 @@ public class AnswerServiceImpl implements AnswerService {
 	public AnswerDto createAnswer(String questionId, AnswerDto answer) {
 
 		AnswerEntity newAnswer = new ModelMapper().map(answer, AnswerEntity.class);
-		newAnswer.setAnswerId(utils.generateAnswerId(20));
+		newAnswer.setAnswerId(utils.generateAnswerId());
 		newAnswer.setQuestion(qR.findByQuestionId(questionId));
 
 		AnswerEntity savedAnswer = aR.save(newAnswer);
@@ -102,4 +102,5 @@ public class AnswerServiceImpl implements AnswerService {
 
 	}
 
+	
 }

@@ -69,10 +69,10 @@ public class QuestionServiceImpl implements QuestionService {
 		ModelMapper mM = new ModelMapper();
 
 		QuestionEntity questionEntity = mM.map(question, QuestionEntity.class);
-		questionEntity.setQuestionId(utils.generateQuestionId(20)); // random id 20 alphanumeric characters long
+		questionEntity.setQuestionId(utils.generateQuestionId()); // random id 20 alphanumeric characters long
 		questionEntity.setQuiz(quizR.findByQuizId(quizId));
 		for (AnswerEntity aE : questionEntity.getAnswers()) {
-			aE.setAnswerId(utils.generateAnswerId(20));
+			aE.setAnswerId(utils.generateAnswerId());
 			aE.setQuestion(questionEntity);
 
 		}
@@ -99,7 +99,7 @@ public class QuestionServiceImpl implements QuestionService {
 		questionEntity.setQuestionText(question.getQuestionText());
 
 		for (AnswerDto answerDto : answerDtoList) {
-			answerDto.setAnswerId(utils.generateAnswerId(20));
+			answerDto.setAnswerId(utils.generateAnswerId());
 
 			AnswerEntity aE = (mm.map(answerDto, AnswerEntity.class));
 			aE.setQuestion(questionEntity);
@@ -122,4 +122,6 @@ public class QuestionServiceImpl implements QuestionService {
 		quesR.delete(questionEntity);
 	}
 
+	
+	
 }

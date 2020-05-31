@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -87,29 +88,11 @@
                     <th>Quiz Name</th>
                     <th>Quiz Status</th>
                     <th>Quiz Owner</th>
+                    <th>Action</th>
                 </tr>
             </thead>
-            <tbody id="myTable">
-                <tr>
-                    <td>Javascript</td>
-                    <td>Private</td>
-                    <td>John</td>
-                </tr>
-                <tr>
-                    <td>Java</td>
-                    <td>Public</td>
-                    <td>Mike</td>
-                </tr>
-                <tr>
-                    <td>MySQL</td>
-                    <td>Public</td>
-                    <td>Panos</td>
-                </tr>
-                <tr>
-                    <td>React &#10084;</td>
-                    <td>Private</td>
-                    <td>Chris</td>
-                </tr>
+            <tbody id="quizTable" >
+              
             </tbody>
         </table>
     </div>
@@ -129,6 +112,31 @@
             </div>
         </div>
     </div>
+
+
+         <!-- take Quiz Modal -->
+         <div class="modal fade" id="takeQuiz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+       
+                        <div id="quizQuestions"></div>
+       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="submitQuizButton" data-dismiss="modal"> Submit</button>
+                    </div>
+                </div>
+            </div>
+       
+           </div>
+
+
+
 
     <!-- Back To Top Button -->
     <a id="back2Top" title="Back to top" href="#">&#10148;</a>
@@ -153,11 +161,18 @@
         </div>
     </div>
 
+
+
+
+
+
     <!-- Script Js -->
-    <script type="text/javascript" src="js/javascript.js"></script>
+
+    <script src="js/take_quiz.js"></script>
+  
 
     <!-- Script for Search Bar -->
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             $("#myInput").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
@@ -166,8 +181,7 @@
                 });
             });
         });
-    </script>
-
+    </script> -->
 
 </body>
 
